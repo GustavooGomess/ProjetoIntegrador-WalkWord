@@ -378,7 +378,7 @@ header i{
 /* Estilização do Botão */
 .cart-summary-container a{
  display: flex;
-  background-color: var(--button-color); /* Verde-oliva da imagem */
+    background-color: #6A5E33;
   color: #ffffff;
   border: none;
   border-radius: 30px; /* Bordas bem arredondadas */
@@ -395,7 +395,7 @@ header i{
 }
 
 .cart-summary-container a:hover {
-    background-color: #e1cb78; /* Fica um pouco mais escuro ao passar o mouse */
+    background-color: #998643; /* Fica um pouco mais escuro ao passar o mouse */
     color: black;
     transition: 0.6s;
     transform: scale(1.05);
