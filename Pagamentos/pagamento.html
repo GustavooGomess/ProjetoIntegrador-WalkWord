@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="pagamento.css">
+    <title>Pagamento</title>
+</head>
+
+<body>
+    <header>
+        <h1>WALKWORD</h1>
+        <p> <i class="fa-solid fa-lock"></i>SECURE CHECKOUT</p>
+    </header>
+   <div class="checkout-progress">
+  <div class="steps">
+    <div class="step active" data-step="1">SHIPPING</div>
+    <div class="step" data-step="2">PAYMENT</div>
+    <div class="step" data-step="3">REVIEW</div>
+  </div>
+  <div class="progress-line">
+    <div class="progress-fill"></div>
+  </div>
+</div>
+
+<section class="Shop">
+    <div class="coluna1">
+    <div class="info">
+        <h1>Shipping Information</h1>
+        <div class="unico">
+        <p>FULL NAME</p>
+       <input type="text" placeholder="Juliana Moore">
+       </div>
+       <div class="combo">
+        <div class="combo1">
+        <p>EMAIL ADRESS</p>
+        <input type="email" placeholder="julianne@atelier.com">
+        </div>  
+        <div class="combo1">
+        <p>PHONE NUMBER</p>
+        <input type="tel" placeholder="(11) 99999-9999">
+        </div>
+</div>
+       <div class="unico">
+        <p>ADDRESS</p>
+       <input type="text" placeholder="123 Rua das Flores, São Paulo, SP">
+       </div> 
+       <div class="combo">
+         <div class="combo1">
+        <p>CITY</p>
+        <input type="text" placeholder="SÃO PAULO">
+        </div>
+        <div class="combo1">
+        <p>POSTAL CODE</p>
+        <input type="text" id="cep" placeholder="00000-000">
+        </div>
+       </div>
+    </div>
+    <div class="payment">
+        <h1>Payment Method</h1>
+        <div class="card2">
+            <div class="card">
+                <div class="pay">
+                <i class="fa-solid fa-credit-card"></i>
+                <i class="fa-regular fa-circle-dot"></i>
+                </div>
+                <p>CREDIT CARD</p>
+                <span>UP TO 12X</span>
+            </div>
+            <div class="card">
+                <div class="pay">
+                <i class="fa-solid fa-qrcode"></i>
+                <i class="fa-regular fa-circle-dot"></i>
+                </div>
+                <p>PIX</p>
+                <span>INSTANT APPROVAL </span>
+                </div>
+           
+             <div class="card">
+                <div class="pay">
+                <i class="fa-solid fa-barcode"></i>
+                 <i class="fa-regular fa-circle-dot"></i>
+                </div>
+                <p>BOLETO</p>
+                <span>1-3 BUSINESS DAY</span>
+            </div>
+             </div>
+             <div class="secure">
+                <div class="i">
+                <i class="fa-solid fa-lock"></i>
+                <p>SSL SECURE CONNECTION</p>
+                </div>
+                <div class="i">
+                <i class="fa-solid fa-shield-halved"></i>
+                <p>SAFE PAY CERTIFIED</p>
+                </div>
+             </div>
+             </div>
+             </div>
+             <div class="fechamento">
+                <h1>Order Sumary</h1>
+                <div class="roupa">
+                    <img src="./img/sobretudo.png" alt="">
+                    <div class="detalhes">
+                        <p>Atelier Trench Coat</p>
+                        <span>Sand / Medium</span>
+                        <div class="price">$420.00</div>
+                    </div>
+                </div>
+                 <div class="roupa">
+                    <img src="./img/Bota.png" alt="">
+                    <div class="detalhes">
+                        <p>Terrain Boots</p>
+                        <span>Tan / 42</span>
+                        <div class="price">$280.00</div>
+                    </div>
+                </div>
+                <div class="eco">
+                <div class="circle">
+                 <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="text2">
+                    <h1>Eco-Friendly Packaging</h1>
+                    <p>Carbon neutral shipping via eletric vehicle</p>
+                </div>
+                <div class="circle-check">
+                            <i class="fa-solid fa-check"></i>
+                </div>
+             </div>
+             <div class="cart-summary-container">
+  
+  <div class="summary-row">
+    <span class="summary-label">Subtotal</span>
+    <span class="summary-value">$700.00</span>
+  </div>
+  
+  <div class="summary-row">
+    <span class="summary-label">Shipping</span>
+    <span class="summary-value highlight-text">Free</span>
+  </div>
+  
+  <div class="summary-row">
+    <span class="summary-label">Tax</span>
+    <span class="summary-value">$12.50</span>
+  </div>
+
+  <hr class="summary-divider" />
+
+  <div class="summary-row total-row">
+    <span class="summary-label">Total</span>
+    <span class="summary-value">$712.50</span>
+  </div>
+
+ <a href="#">COMPLETE ORDER</a>
+
+  <p class="terms-text">BY COMPLETING YOUR ORDER, YOU AGREE TO OUR TERMS.</p>
+
+</div>
+</div>
+</section>
+<footer>
+    <h1>WALKWORD</h1>
+    <p>© 2024 WALKWORD. CONSCIOUS CRAFTSMANSHIP.</p>
+    <div class="footer-links">
+        <a href="#">PRIVACY POLICY</a>
+        <a href="#">CONTACT</a>
+    </div>
+</footer>
+</body>
+
+</html>
