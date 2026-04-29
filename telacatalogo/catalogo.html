@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Footwear</title>
+    <link rel="stylesheet" href="catalogo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class ="nav_menu">
+      <h1>WALKWORD</h1>
+    <div class ="nav_links">
+      <a href="">Editorial</a>
+      <a href="">Atelier</a>
+      <a href="">Menu</a>
+      <a href="">Shop</a>
+    </div>
+     </div>
+    <div class ='icons_search'>
+      <img src="./lupa (1).png" alt="">
+      <img src="./sacola-de-compras.png" alt="">
+      <img src="./user (2).png" alt="">
+    </div>
+  </header>
+<div class="container">
+    <aside class="sidebar">
+        <div class="filter-header">
+            <h2>Filters</h2>
+            <button class="clear-btn">CLEAR ALL</button>
+        </div>
+
+        <div class="filter-section">
+            <h3>CATEGORY</h3>
+            <label class="checkbox-label"><input type="checkbox" checked> Footwear</label>
+            <label class="checkbox-label"><input type="checkbox"> Outerwear</label>
+            <label class="checkbox-label"><input type="checkbox"> Accessories</label>
+        </div>
+
+        <div class="filter-section">
+            <h3>CONDITION</h3>
+            <div class="pill-group">
+                <button class="pill active">New</button>
+                <button class="pill">Pre-owned</button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="price-header">
+                <h3>PRICE RANGE</h3>
+                <span>$120 — $850</span>
+            </div>
+            <div class="slider-track">
+                <div class="slider-fill"></div>
+                <div class="slider-thumb left"></div>
+                <div class="slider-thumb right"></div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3>COLOR</h3>
+            <div class="color-options">
+                <div class="color-swatch active" style="background-color: #f5f5dc;"></div>
+                <div class="color-swatch" style="background-color: #556b2f;"></div>
+                <div class="color-swatch" style="background-color: #222;"></div>
+                <div class="color-swatch" style="background-color: #a394c6;"></div>
+                <div class="color-swatch" style="background-color: #e0e0e0;"></div>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3>SIZE</h3>
+            <div class="size-grid">
+                <button class="size-btn">EU 38</button>
+                <button class="size-btn active">EU 39</button>
+                <button class="size-btn">EU 40</button>
+                <button class="size-btn">EU 41</button>
+                <button class="size-btn">EU 42</button>
+                <button class="size-btn">EU 43</button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3>BRAND</h3>
+            <label class="checkbox-label"><input type="checkbox"> The Row</label>
+            <label class="checkbox-label"><input type="checkbox"> Lemaire</label>
+            <label class="checkbox-label"><input type="checkbox"> Jil Sander</label>
+        </div>
+    </aside>
+
+    <main class="content">
+        <div class="content-header">
+            <div class="title-area">
+                <span class="subtitle">CURATION FOOTWEAR</span>
+                <h1>84 Products Found</h1>
+            </div>
+            <div class="controls">
+                <button class="sort-btn">SORT: RELEVANCE ▾</button>
+                <div class="view-toggles">
+                    <button class="view-btn active">▦</button>
+                    <button class="view-btn">▤</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-grid">
+            <article class="product-card">
+                <div class="image-placeholder" style="background-color: #f1ede5;">
+                    <span class="badge">LWG GOLD CERTIFIED</span>
+                </div>
+                <div class="card-info">
+                    <div class="brand-price">
+                        <span class="brand">THE ROW</span>
+                        <span class="price">$700</span>
+                    </div>
+                    <h3 class="product-title">Soft Loafer in Nappa</h3>
+                    <span class="condition">Condition: <strong>New</strong></span>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="image-placeholder" style="background-color: #e2e8e4;">
+                    <span class="badge" style="background-color: #d1c8a5; color: #333;">ARCHIVAL PIECE</span>
+                </div>
+                <div class="card-info">
+                    <div class="brand-price">
+                        <span class="brand">JIL SANDER</span>
+                        <span class="price">$420</span>
+                    </div>
+                    <h3 class="product-title">Classic Canvas Low-top</h3>
+                    <span class="condition">Condition: <strong>Pre-owned</strong></span>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="image-placeholder" style="background-color: #3b2a1a;">
+                    <span class="badge">RECYCLED SOLE</span>
+                </div>
+                <div class="card-info">
+                    <div class="brand-price">
+                        <span class="brand">LEMAIRE</span>
+                        <span class="price">$850</span>
+                    </div>
+                    <h3 class="product-title">Pebbled Leather Desert Boot</h3>
+                    <span class="condition">Condition: <strong>New</strong></span>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="image-placeholder" style="background-color: #c98a50;">
+                </div>
+                <div class="card-info">
+                    <div class="brand-price">
+                        <span class="brand">TOTEME</span>
+                        <span class="price">$560</span>
+                    </div>
+                    <h3 class="product-title">Strap Sandal in Bone</h3>
+                    <span class="condition">Condition: <strong>New</strong></span>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="image-placeholder" style="background-color: #2b4549;">
+                    <span class="badge">VEGAN</span>
+                </div>
+                <div class="card-info">
+                    <div class="brand-price">
+                        <span class="brand">SALOMON S/LAB</span>
+                        <span class="price">$220</span>
+                    </div>
+                    <h3 class="product-title">XT-6 Advanced Technical</h3>
+                    <span class="condition">Condition: <strong>New</strong></span>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="image-placeholder" style="background-color: #d8c1a6;">
+                </div>
+                <div class="card-info">
+                    <div class="brand-price">
+                        <span class="brand">STUDIO NICHOLSON</span>
+                        <span class="price">$350</span>
+                    </div>
+                    <h3 class="product-title">Merino Vulcanised Shoe</h3>
+                    <span class="condition">Condition: <strong>Pre-owned</strong></span>
+                </div>
+            </article>
+        </div>
+
+        <nav class="pagination">
+            <button class="page-arrow">⟨</button>
+            <button class="page-num active">1</button>
+            <button class="page-num">2</button>
+            <button class="page-num">3</button>
+            <span class="page-dots">...</span>
+            <button class="page-num">12</button>
+            <button class="page-arrow">⟩</button>
+        </nav>
+    </main>
+</div>
+
+</body>
+</html>
