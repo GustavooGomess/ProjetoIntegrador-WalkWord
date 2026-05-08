@@ -16,32 +16,6 @@ body{
     background-attachment: fixed;
 }
 
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-   background: rgba(255, 255, 255, 0.071);
-   backdrop-filter: blur(10px);
-    height: 60px;
-    color: white;
-}
-header h1{
-    margin-left: 25px;
-    font-weight: 600;
-    font-size: 26px;
-}
-header a{
-    margin-right: 25px;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    font-weight: 300;
-    font-size: 15px;
-}
-header a:hover{
-    color: #8F8E8E;
-    transition: 0.4s;
-}
 .card{
     display: flex;
     align-items: center;

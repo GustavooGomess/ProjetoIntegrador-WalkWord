@@ -4,88 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce Footwear</title>
+    <link rel="stylesheet" href="../css/site-header.css">
     <link rel="stylesheet" href="catalogo.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-    <div class ="nav_menu">
-      <h1>WALKWORD</h1>
-    <div class ="nav_links">
-      <a href="">Editorial</a>
-      <a href="">Atelier</a>
-      <a href="">Menu</a>
-      <a href="">Shop</a>
-    </div>
-     </div>
-    <div class ='icons_search'>
-      <img src="./lupa (1).png" alt="">
-      <img src="./sacola-de-compras.png" alt="">
-      <img src="./user (2).png" alt="">
-    </div>
-  </header>
+    <header>
+        <div class="header-brand">
+          <a href="catalogo.html"><h1>WALKWORD</h1></a>
+        </div>
+        <nav class="nav_links" aria-label="Navegação principal">
+            <a href="#">Editorial</a>
+            <a href="#">Atelier</a>
+            <a href="#">Menu</a>
+            <a href="catalogo.html">Shop</a>
+        </nav>
+        <div class='icons_search'>
+          <button id="search-toggle-btn" class="icon-btn" type="button" aria-label="Abrir busca">
+            <img src="./img/lupa (1).png" alt="Buscar">
+          </button>
+          <button id="cart-btn" class="icon-btn" type="button" aria-label="Abrir carrinho">
+            <img src="./img/sacola-de-compras.png" alt="Carrinho">
+            <span id="cart-count" class="cart-count">0</span>
+          </button>
+          <button id="user-btn" class="icon-btn" type="button" aria-label="Abrir menu de usuário" href="../login/login.html">
+            <img src="./img/user (2).png" alt="Usuário">
+          </button>
+        </div>
+      </header>
+    
+      <div id="search-bar-container" class="search-bar-container">
+        <input id="search-input" type="text" placeholder="Buscar no look..." />
+      </div>
+      <div id="user-menu" class="user-menu">
+        <a id="menu-login-link" href="../perfil/perfil.html">Entrar</a>
+        <a id="menu-orders-link" href="#">Meus pedidos</a>
+        <a id="menu-favorites-link" href="#">Favoritos</a>
+      </div>
 <div class="container">
     <aside class="sidebar">
         <div class="filter-header">
             <h2>Filters</h2>
-            <button class="clear-btn">CLEAR ALL</button>
+            <button type="button" class="clear-btn" id="clear-filters">CLEAR ALL</button>
         </div>
 
         <div class="filter-section">
             <h3>CATEGORY</h3>
-            <label class="checkbox-label"><input type="checkbox" checked> Footwear</label>
-            <label class="checkbox-label"><input type="checkbox"> Outerwear</label>
-            <label class="checkbox-label"><input type="checkbox"> Accessories</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="footwear" checked> Footwear</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="outerwear"> Outerwear</label>
+            <label class="checkbox-label"><input type="checkbox" name="category" value="accessories"> Accessories</label>
         </div>
 
         <div class="filter-section">
             <h3>CONDITION</h3>
-            <div class="pill-group">
-                <button class="pill active">New</button>
-                <button class="pill">Pre-owned</button>
+            <div class="pill-group" role="group" aria-label="Condition">
+                <button type="button" class="pill active" data-condition="new">New</button>
+                <button type="button" class="pill" data-condition="pre-owned">Pre-owned</button>
             </div>
         </div>
 
         <div class="filter-section">
             <div class="price-header">
                 <h3>PRICE RANGE</h3>
-                <span>$120 — $850</span>
+                <span class="price-range-label" id="price-range-label">$120 — $850</span>
             </div>
-            <div class="slider-track">
-                <div class="slider-fill"></div>
-                <div class="slider-thumb left"></div>
-                <div class="slider-thumb right"></div>
+            <div class="slider-track" id="price-slider" role="slider" aria-label="Price range" aria-valuemin="120" aria-valuemax="850">
+                <div class="slider-fill" id="slider-fill"></div>
+                <button type="button" class="slider-thumb left" id="thumb-min" aria-label="Minimum price"></button>
+                <button type="button" class="slider-thumb right" id="thumb-max" aria-label="Maximum price"></button>
             </div>
         </div>
 
         <div class="filter-section">
             <h3>COLOR</h3>
-            <div class="color-options">
-                <div class="color-swatch active" style="background-color: #f5f5dc;"></div>
-                <div class="color-swatch" style="background-color: #556b2f;"></div>
-                <div class="color-swatch" style="background-color: #222;"></div>
-                <div class="color-swatch" style="background-color: #a394c6;"></div>
-                <div class="color-swatch" style="background-color: #e0e0e0;"></div>
+            <div class="color-options" role="group" aria-label="Colors">
+                <button type="button" class="color-swatch" style="background-color: #f5f5dc;" data-color="beige" aria-label="Beige"></button>
+                <button type="button" class="color-swatch" style="background-color: #556b2f;" data-color="olive" aria-label="Olive"></button>
+                <button type="button" class="color-swatch" style="background-color: #222;" data-color="black" aria-label="Black"></button>
+                <button type="button" class="color-swatch" style="background-color: #a394c6;" data-color="lavender" aria-label="Lavender"></button>
+                <button type="button" class="color-swatch" style="background-color: #e0e0e0;" data-color="grey" aria-label="Grey"></button>
             </div>
         </div>
 
         <div class="filter-section">
             <h3>SIZE</h3>
-            <div class="size-grid">
-                <button class="size-btn">EU 38</button>
-                <button class="size-btn active">EU 39</button>
-                <button class="size-btn">EU 40</button>
-                <button class="size-btn">EU 41</button>
-                <button class="size-btn">EU 42</button>
-                <button class="size-btn">EU 43</button>
+            <div class="size-grid" role="group" aria-label="Size">
+                <button type="button" class="size-btn" data-size="38">EU 38</button>
+                <button type="button" class="size-btn active" data-size="39">EU 39</button>
+                <button type="button" class="size-btn" data-size="40">EU 40</button>
+                <button type="button" class="size-btn" data-size="41">EU 41</button>
+                <button type="button" class="size-btn" data-size="42">EU 42</button>
+                <button type="button" class="size-btn" data-size="43">EU 43</button>
             </div>
         </div>
 
         <div class="filter-section">
             <h3>BRAND</h3>
-            <label class="checkbox-label"><input type="checkbox"> The Row</label>
-            <label class="checkbox-label"><input type="checkbox"> Lemaire</label>
-            <label class="checkbox-label"><input type="checkbox"> Jil Sander</label>
+            <label class="checkbox-label"><input type="checkbox" name="brand" value="the-row"> The Row</label>
+            <label class="checkbox-label"><input type="checkbox" name="brand" value="lemaire"> Lemaire</label>
+            <label class="checkbox-label"><input type="checkbox" name="brand" value="jil-sander"> Jil Sander</label>
         </div>
     </aside>
 
@@ -93,19 +110,19 @@
         <div class="content-header">
             <div class="title-area">
                 <span class="subtitle">CURATION FOOTWEAR</span>
-                <h1>84 Products Found</h1>
+                <h1 id="products-count-heading"><span id="products-count">6</span> Products Found</h1>
             </div>
             <div class="controls">
-                <button class="sort-btn">SORT: RELEVANCE ▾</button>
-                <div class="view-toggles">
-                    <button class="view-btn active">▦</button>
-                    <button class="view-btn">▤</button>
+                <button type="button" class="sort-btn" id="sort-btn" aria-haspopup="listbox" aria-expanded="false">SORT: RELEVANCE ▾</button>
+                <div class="view-toggles" role="group" aria-label="Layout">
+                    <button type="button" class="view-btn active" data-view="grid" aria-pressed="true" title="Grid">▦</button>
+                    <button type="button" class="view-btn" data-view="list" aria-pressed="false" title="List">▤</button>
                 </div>
             </div>
         </div>
 
-        <div class="product-grid">
-            <article class="product-card">
+        <div class="product-grid" id="product-grid">
+            <article class="product-card" data-category="footwear" data-condition="new" data-price="700" data-brand="the-row" data-colors="beige" data-sizes="38,39,40,41">
                 <div class="image-placeholder" style="background-color: #f1ede5;">
                     <span class="badge">LWG GOLD CERTIFIED</span>
                 </div>
@@ -119,7 +136,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="footwear" data-condition="pre-owned" data-price="420" data-brand="jil-sander" data-colors="grey" data-sizes="39,40">
                 <div class="image-placeholder" style="background-color: #e2e8e4;">
                     <span class="badge" style="background-color: #d1c8a5; color: #333;">ARCHIVAL PIECE</span>
                 </div>
@@ -133,7 +150,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="footwear" data-condition="new" data-price="850" data-brand="lemaire" data-colors="olive" data-sizes="40,41,42">
                 <div class="image-placeholder" style="background-color: #3b2a1a;">
                     <span class="badge">RECYCLED SOLE</span>
                 </div>
@@ -147,7 +164,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="footwear" data-condition="new" data-price="560" data-brand="toteme" data-colors="beige" data-sizes="38,39,40">
                 <div class="image-placeholder" style="background-color: #c98a50;">
                 </div>
                 <div class="card-info">
@@ -160,7 +177,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="footwear" data-condition="new" data-price="220" data-brand="salomon" data-colors="black" data-sizes="40,41,42,43">
                 <div class="image-placeholder" style="background-color: #2b4549;">
                     <span class="badge">VEGAN</span>
                 </div>
@@ -174,7 +191,7 @@
                 </div>
             </article>
 
-            <article class="product-card">
+            <article class="product-card" data-category="footwear" data-condition="pre-owned" data-price="350" data-brand="studio-nicholson" data-colors="beige" data-sizes="39,41,42">
                 <div class="image-placeholder" style="background-color: #d8c1a6;">
                 </div>
                 <div class="card-info">
@@ -188,17 +205,11 @@
             </article>
         </div>
 
-        <nav class="pagination">
-            <button class="page-arrow">⟨</button>
-            <button class="page-num active">1</button>
-            <button class="page-num">2</button>
-            <button class="page-num">3</button>
-            <span class="page-dots">...</span>
-            <button class="page-num">12</button>
-            <button class="page-arrow">⟩</button>
-        </nav>
+        <nav class="pagination" id="pagination" aria-label="Pagination"></nav>
     </main>
 </div>
 
+<script src="catalogo.js" defer></script>
+<script src="../js/site-header.js" defer></script>
 </body>
 </html>

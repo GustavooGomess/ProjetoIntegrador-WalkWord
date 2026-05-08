@@ -14,31 +14,24 @@
 body{
     background-color: #f7f6f6;
 }
-header{
+
+.pagamento-secure-banner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: #ffffff ;
-    align-items: center;
-    height: 70px;
-    color: black;
-   
-}
-header h1{
-    margin-left: 25px;
+    gap: 0.5rem;
+    padding: 10px 16px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--secondary-color);
+    background: #fff;
+    border-bottom: 1px solid #eee;
 }
 
-header p{
+.pagamento-secure-banner i {
     color: var(--secondary-color);
-    font-weight: 400;
-    margin-right: 25px;
-    font-size: 14px;
 }
 
-header i{
-    color: var(--secondary-color);
-    margin-right: 10px;
-}
 .checkout-progress {
   width: 100%;
   display: flex;

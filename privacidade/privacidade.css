@@ -10,40 +10,6 @@ body {
   color: #111;
 }
 
-header {
-  height: 70px;
-  padding: 0 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #eee;
-  background: white;
-}
-
-.logo {
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-nav {
-  display: flex;
-  gap: 42px;
-}
-
-nav a,
-footer a {
-  text-decoration: none;
-  color: #555;
-  font-size: 12px;
-}
-
-.icons {
-  display: flex;
-  gap: 18px;
-  font-size: 16px;
-}
-
 main {
   max-width: 1180px;
   margin: auto;
@@ -280,10 +246,11 @@ footer a {
   text-transform: uppercase;
   font-size: 10px;
   letter-spacing: 1px;
+  text-decoration: none;
+  color: #555;
 }
 
 @media (max-width: 900px) {
-  nav,
   aside {
     display: none;
   }
@@ -300,9 +267,5 @@ footer a {
   .rights,
   footer {
     grid-template-columns: 1fr;
-  }
-
-  header {
-    padding: 0 24px;
   }
 }

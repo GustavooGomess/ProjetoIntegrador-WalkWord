@@ -7,25 +7,42 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site-header.css">
   <link rel="stylesheet" href="navegacao.css">
 </head>
 <body>
   <header>
-    <div class ="nav_menu">
-      <h1>WALKWORD</h1>
-    <div class ="nav_links">
-      <a href="">Editorial</a>
-      <a href="">Atelier</a>
-      <a href="">Menu</a>
-      <a href="">Shop</a>
+    <div class="header-brand">
+      <a href="navegacao.html"><h1>WALKWORD</h1></a>
     </div>
-     </div>
-    <div class ='icons_search'>
-      <img src="./lupa (1).png" alt="">
-      <img src="./sacola-de-compras.png" alt="">
-      <img src="./user (2).png" alt="">
+    <nav class="nav_links" aria-label="Navegação principal">
+      <a href="#">Editorial</a>
+      <a href="#">Atelier</a>
+      <a href="#">Menu</a>
+      <a href="../telacatalogo/catalogo.html">Shop</a>
+    </nav>
+    <div class="icons_search">
+      <button id="search-toggle-btn" class="icon-btn" type="button" aria-label="Abrir busca">
+        <img src="../telacatalogo/img/lupa (1).png" alt="Buscar">
+      </button>
+      <button id="cart-btn" class="icon-btn" type="button" aria-label="Abrir carrinho">
+        <img src="../telacatalogo/img/sacola-de-compras.png" alt="Carrinho">
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button id="user-btn" class="icon-btn" type="button" aria-label="Abrir menu de usuário">
+        <img src="../telacatalogo/img/user (2).png" alt="Usuário">
+      </button>
     </div>
   </header>
+
+  <div id="search-bar-container" class="search-bar-container">
+    <input id="search-input" type="text" placeholder="Buscar no look..." />
+  </div>
+  <div id="user-menu" class="user-menu">
+    <a id="menu-login-link" href="../perfil/perfil.html">Entrar</a>
+    <a id="menu-orders-link" href="#">Meus pedidos</a>
+    <a id="menu-favorites-link" href="#">Favoritos</a>
+  </div>
 
   <main>
     <section class="hero">
@@ -80,5 +97,6 @@
       <p>© 2026 WALKWORD</p>
     </footer>
   </main>
+  <script src="../js/site-header.js" defer></script>
 </body>
 </html>
