@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WALKWORD — Editorial</title>
+  <meta name="description" content="WALKWORD — Moda consciente e atemporal. Explore nossas coleções editoriais.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/site-header.css">
+  <link rel="stylesheet" href="navegacao.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-brand">
+      <a href="navegacao.html">
+        <h1>WALKWORD</h1>
+      </a>
+    </div>
+    <nav class="nav_links" aria-label="Navegação principal">
+      <a href="navegacao.html" class="nav-editorial active-nav">Editorial</a>
+      <a href="#" class="nav-atelier">Atelier</a>
+      <a href="#" class="nav-menu-link">Menu</a>
+      <a href="../telacatalogo/catalogo.html" class="nav-shop">Shop</a>
+    </nav>
+    <div class="icons_search">
+      <button id="search-toggle-btn" class="icon-btn" type="button" aria-label="Abrir busca">
+        <img src="../telacatalogo/img/lupa (1).png" alt="Buscar">
+      </button>
+      <button id="cart-btn" class="icon-btn" type="button" aria-label="Abrir carrinho">
+        <img src="../telacatalogo/img/sacola-de-compras.png" alt="Carrinho">
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button id="user-btn" class="icon-btn" type="button" aria-label="Abrir menu de usuário">
+        <img src="../telacatalogo/img/user (2).png" alt="Usuário">
+      </button>
+    </div>
+  </header>
+
+  <div id="search-bar-container" class="search-bar-container">
+    <input id="search-input" type="text" placeholder="Buscar no look..." />
+  </div>
+  <div id="user-menu" class="user-menu">
+    <a id="menu-login-link" href="../perfil/perfil.html">Entrar</a>
+    <a id="menu-orders-link" href="../perfil/perfil.html">Meus pedidos</a>
+    <a id="menu-favorites-link" href="../favoritos/favoritos.html">Favoritos</a>
+  </div>
+
+  <!-- Atelier overlay (same as catalog) -->
+  <div id="atelier-overlay" class="atelier-overlay" role="dialog" aria-modal="true">
+    <div class="atelier-content">
+      <button class="atelier-close" id="atelier-close-btn">&times;</button>
+      <div class="atelier-inner">
+        <div class="atelier-text">
+          <span class="atelier-label">ATELIER WALKWORD</span>
+          <h2>Onde cada peça nasce com propósito.</h2>
+          <p>Nosso ateliê em Porto produz moda consciente com materiais rastreáveis, artesãos certificados e zero
+            desperdício. Cada peça é numerada, datada e assinada.</p>
+          <ul>
+            <li><i class="fa-solid fa-leaf"></i> 100% lã orgânica certificada</li>
+            <li><i class="fa-solid fa-recycle"></i> Zero desperdício no processo</li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> Artesãos locais remunerados justamente</li>
+            <li><i class="fa-solid fa-tag"></i> Cada peça tem ID rastreável</li>
+          </ul>
+          <a href="../telacatalogo/catalogo.html" class="atelier-cta">Explorar coleção</a>
+        </div>
+        <div class="atelier-img"
+          style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80')">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu drawer -->
+  <div id="menu-drawer" class="menu-drawer" role="dialog" aria-modal="true">
+    <div class="menu-drawer-inner">
+      <button class="menu-drawer-close" id="menu-drawer-close">&times;</button>
+      <h3>CATEGORIAS</h3>
+      <nav class="drawer-nav">
+        <a href="../telacatalogo/catalogo.html?cat=footwear"><i class="fa-solid fa-shoe-prints"></i> Footwear</a>
+        <a href="../telacatalogo/catalogo.html?cat=shirts"><i class="fa-solid fa-shirt"></i> Camisas</a>
+        <a href="../telacatalogo/catalogo.html?cat=blazers"><i class="fa-solid fa-vest"></i> Blazers</a>
+        <a href="../telacatalogo/catalogo.html?cat=outerwear"><i class="fa-solid fa-person-shelter"></i> Outerwear</a>
+        <a href="../telacatalogo/catalogo.html?cat=accessories"><i class="fa-solid fa-glasses"></i> Acessórios</a>
+      </nav>
+      <hr>
+      <h3>LINKS RÁPIDOS</h3>
+      <nav class="drawer-nav">
+        <a href="navegacao.html"><i class="fa-solid fa-newspaper"></i> Editorial</a>
+        <a href="../perfil/perfil.html"><i class="fa-solid fa-user"></i> Minha Conta</a>
+        <a href="../privacidade/privacidade.html"><i class="fa-solid fa-shield-halved"></i> Privacidade</a>
+      </nav>
+    </div>
+  </div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Carrinho">
+    <div class="cart-drawer-inner">
+      <div class="cart-drawer-header">
+        <h3>Meu Carrinho</h3>
+        <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Fechar">&#x2715;</button>
+      </div>
+      <div id="cart-drawer-items" class="cart-drawer-items"></div>
+      <div class="cart-drawer-footer" id="cart-drawer-footer" style="display:none;">
+        <div class="cart-drawer-subtotal">
+          <span>Subtotal</span>
+          <strong id="cart-drawer-total">R$ 0,00</strong>
+        </div>
+        <a href="../Pagamentos/pagamento.html" class="cart-drawer-checkout-btn">Finalizar Compra <i
+            class="fa-solid fa-arrow-right"></i></a>
+        <p class="cart-drawer-note"><i class="fa-solid fa-leaf"></i> Embalagem eco-friendly incluída</p>
+      </div>
+      <div class="cart-drawer-empty" id="cart-drawer-empty">
+        <i class="fa-regular fa-bag-shopping"></i>
+        <p>Seu carrinho está vazio</p>
+        <a href="../telacatalogo/catalogo.html">Explorar coleção <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+  <div id="cart-backdrop" class="drawer-backdrop"></div>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1600&q=85"
+          alt="WALKWORD Editorial" class="hero-img" loading="eager">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <span class="hero-tag">SS26 — NOVA COLEÇÃO</span>
+        <h2 id="dynamic-welcome">A Nova Era da<br>Moda Consciente</h2>
+        <p class="hero-sub">Estilo com propósito. Peças atemporais, impacto zero.</p>
+        <div class="hero-actions">
+          <a href="../telacatalogo/catalogo.html" class="hero-btn primary">Explore coleção</a>
+          <a href="#editorial-grid" class="hero-btn secondary">Ver Editorial</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee-bar" aria-hidden="true">
+      <div class="marquee-track">
+        <span>MODA CONSCIENTE</span><span>·</span>
+        <span>SUSTAINABLE LUXURY</span><span>·</span>
+        <span>ZERO WASTE</span><span>·</span>
+        <span>ATELIER CRAFTED</span><span>·</span>
+        <span>SS26 COLLECTION</span><span>·</span>
+        <span>MODA CONSCIENTE</span><span>·</span>
+        <span>SUSTAINABLE LUXURY</span><span>·</span>
+        <span>ZERO WASTE</span><span>·</span>
+        <span>ATELIER CRAFTED</span><span>·</span>
+        <span>SS26 COLLECTION</span><span>·</span>
+      </div>
+    </div>
+
+    <!-- ===== EDITORIAL GRID ===== -->
+    <section class="editorial-section" id="editorial-grid">
+      <div class="section-header">
+        <span class="section-tag">EDITORIAL</span>
+        <h2>Curadoria da Temporada</h2>
+      </div>
+      <div class="grid-three">
+        <!-- Card tall: coluna 1, ocupa linhas 1 e 2 -->
+        <article class="editorial-card tall" style="grid-column:1; grid-row:1/span 2;"
+          onclick="window.location.href='../telacatalogo/catalogo.html?cat=blazers'">
+          <div class="editorial-img"
+            style="background-image:url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="editorial-info">
+            <span class="editorial-tag">BLAZERS & COATS</span>
+            <h3>The Power Layer</h3>
+            <p>Alfaiataria contemporânea para o dia a dia consciente.</p>
+            <span class="editorial-cta">Ver coleção →</span>
+          </div>
+        </article>
+        <!-- Card normal: coluna 2, linha 1 -->
+        <article class="editorial-card" style="grid-column:2; grid-row:1;"
+          onclick="window.location.href='../telacatalogo/catalogo.html?cat=shirts'">
+          <div class="editorial-img"
+            style="background-image:url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="editorial-info">
+            <span class="editorial-tag">SHIRTS</span>
+            <h3>The Spring Edit</h3>
+            <p>Modelagens naturais em algodão orgânico.</p>
+            <span class="editorial-cta">Ver coleção →</span>
+          </div>
+        </article>
+        <!-- Card normal: coluna 2, linha 2 -->
+        <article class="editorial-card" style="grid-column:2; grid-row:2;"
+          onclick="window.location.href='../telacatalogo/catalogo.html?cat=footwear'">
+          <div class="editorial-img"
+            style="background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80')">
+          </div>
+          <div class="editorial-info">
+            <span class="editorial-tag">FOOTWEAR</span>
+            <h3>Step Conscious</h3>
+            <p>Botas, loafers e tênis com materiais rastreáveis.</p>
+            <span class="editorial-cta">Ver coleção →</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== MANIFESTO ===== -->
+    <section class="manifesto">
+      <div class="manifesto-text">
+        <span class="section-tag">NOSSA MISSÃO</span>
+        <h2>"Consumir consciente não é apenas uma escolha, é um futuro."</h2>
+        <p>Na WALKWORD, acreditamos que o estilo deve andar com propósito. Cada peça nasce com materiais nobres,
+          qualidade e respeito ao processo, unindo design e sustentabilidade.</p>
+        <div class="manifesto-stats">
+          <div class="stat">
+            <span class="stat-num">2.400L</span>
+            <span class="stat-label">Água economizada por peça</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Materiais rastreáveis</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">0</span>
+            <span class="stat-label">Desperdício no ateliê</span>
+          </div>
+        </div>
+      </div>
+      <div class="manifesto-visual">
+        <div class="manifesto-img-main"
+          style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80')">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED DROP ===== -->
+    <section class="featured-drop">
+      <div class="featured-inner">
+        <!-- Imagem do produto com troca dinamica por cor -->
+        <div class="featured-img-wrap">
+          <img id="featured-product-img"
+            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=900&q=85"
+            alt="Structured Wool Blazer" class="featured-img">
+          <div class="featured-badge-float">NEW DROP</div>
+          <div class="featured-stock-badge"><span class="stock-dot"></span> Ultimas unidades</div>
+        </div>
+
+        <!-- Info do produto -->
+        <div class="featured-info">
+          <span class="section-tag">DESTAQUE SS26</span>
+          <h2>Structured Wool Blazer</h2>
+          <p>O blazer que redefine o guarda-roupa consciente. Lã orgânica, alfaiataria estruturada.</p>
+
+
+
+          <!-- Preco + CTA -->
+          <div class="featured-price-block">
+            <div class="featured-price">
+              <span class="price-main">R$ 1.800</span>
+              <span class="price-tag"><i class="fa-solid fa-truck"></i> Frete gratis &middot; <i
+                  class="fa-solid fa-certificate"></i> LWG Certified</span>
+            </div>
+            <div class="featured-actions">
+              <a href="../telacatalogo/catalogo.html?cat=blazers" class="btn-buy">Comprar agora <i
+                  class="fa-solid fa-arrow-right"></i></a>
+              <button class="btn-wishlist" id="featured-wishlist-btn" aria-label="Adicionar aos favoritos"><i
+                  class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+
+          <!-- Beneficios -->
+          <div class="featured-perks">
+            <span><i class="fa-solid fa-rotate-left"></i> 30 dias para troca</span>
+            <span><i class="fa-solid fa-leaf"></i> 100% organico</span>
+            <span><i class="fa-solid fa-shield-halved"></i> Autenticidade garantida</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== COMMUNITY FAVORITES ===== -->
+    <section class="community">
+      <div class="section-header centered">
+        <span class="section-tag">COMUNIDADE</span>
+        <h2>Favoritos da Comunidade</h2>
+        <p>O que nossa comunidade esta amando esta temporada.</p>
+      </div>
+      <div class="products">
+        <article class="product"
+          onclick="goToProduct('footwear','Soft Loafer in Nappa',700,'https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80','38,39,40,41')">
+          <div class="product-img-wrap">
+            <div class="img"
+              style="background-image:url('https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=500&q=80')">
+            </div>
+            <div class="product-overlay"><span class="product-overlay-cta">Ver produto</span></div>
+          </div>
+          <div class="product-info">
+            <div class="product-brand">THE ROW</div>
+            <h4>Soft Loafer</h4>
+            <div class="product-price-row"><span class="product-price">R$ 700</span><span
+                class="product-category">Footwear</span></div>
+          </div>
+        </article>
+        <article class="product"
+          onclick="goToProduct('blazers','Structured Wool Blazer',1800,'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80','P,M,G,GG')">
+          <div class="product-img-wrap">
+            <div class="img"
+              style="background-image:url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=500&q=80')">
+            </div>
+            <div class="product-overlay"><span class="product-overlay-cta">Ver produto</span></div>
+            <span class="product-badge">Best seller</span>
+          </div>
+          <div class="product-info">
+            <div class="product-brand">WALKWORD</div>
+            <h4>Wool Blazer</h4>
+            <div class="product-price-row"><span class="product-price">R$ 1.800</span><span
+                class="product-category">Blazers</span></div>
+          </div>
+        </article>
+        <article class="product"
+          onclick="goToProduct('shirts','Oversized Organic Tee',280,'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80','PP,P,M,G,GG')">
+          <div class="product-img-wrap">
+            <div class="img"
+              style="background-image:url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80')">
+            </div>
+            <div class="product-overlay"><span class="product-overlay-cta">Ver produto</span></div>
+          </div>
+          <div class="product-info">
+            <div class="product-brand">WALKWORD</div>
+            <h4>Organic Tee</h4>
+            <div class="product-price-row"><span class="product-price">R$ 280</span><span
+                class="product-category">Shirts</span></div>
+          </div>
+        </article>
+        <article class="product"
+          onclick="goToProduct('accessories','Versa Tote Bag',620,'https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80','U')">
+          <div class="product-img-wrap">
+            <div class="img"
+              style="background-image:url('https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=500&q=80')">
+            </div>
+            <div class="product-overlay"><span class="product-overlay-cta">Ver produto</span></div>
+          </div>
+          <div class="product-info">
+            <div class="product-brand">WALKWORD</div>
+            <h4>Versa Tote</h4>
+            <div class="product-price-row"><span class="product-price">R$ 620</span><span
+                class="product-category">Accessories</span></div>
+          </div>
+        </article>
+        <article class="product"
+          onclick="goToProduct('footwear','Structured Chelsea Boot',1200,'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80','37,38,39,40,41')">
+          <div class="product-img-wrap">
+            <div class="img"
+              style="background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80')">
+            </div>
+            <div class="product-overlay"><span class="product-overlay-cta">Ver produto</span></div>
+          </div>
+          <div class="product-info">
+            <div class="product-brand">WALKWORD</div>
+            <h4>Chelsea Boot</h4>
+            <div class="product-price-row"><span class="product-price">R$ 1.200</span><span
+                class="product-category">Footwear</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== IMAGE SHOWCASE ===== -->
+    <section class="image-showcase">
+      <div class="showcase-grid">
+        <div class="showcase-img big"
+          style="background-image:url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=900&q=85')">
+          <div class="showcase-label">Outerwear Collection</div>
+        </div>
+        <div class="showcase-col">
+          <div class="showcase-img"
+            style="background-image:url('https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80')">
+            <div class="showcase-label">Social Shirts</div>
+          </div>
+          <div class="showcase-img"
+            style="background-image:url('https://images.unsplash.com/photo-1514590734052-344a18719611?auto=format&fit=crop&w=600&q=80')">
+            <div class="showcase-label">Footwear</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="newsletter">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <span class="section-tag">NEWSLETTER</span>
+          <h2>Mantenha-se Consciente.</h2>
+          <p>Receba novos drops, campanhas e editoriais em primeira mão.</p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form" onsubmit="handleNewsletter(event)">
+          <div class="nl-input-group">
+            <input type="email" placeholder="seu@email.com" id="nl-email" required>
+            <button type="submit">Inscrever <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          <p class="nl-privacy">Ao se inscrever, você concorda com nossa <a
+              href="../privacidade/privacidade.html">Política de Privacidade</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-brand">
+        <h2>WALKWORD</h2>
+        <p>© 2026 WALKWORD.<br>CONSCIOUS CRAFTSMANSHIP.</p>
+      </div>
+      <div class="footer-col">
+        <span>SERVICE</span>
+        <a href="#">TRACEABILITY</a>
+        <a href="#">SHIPPING & RETURNS</a>
+        <a href="../privacidade/privacidade.html">PRIVACY POLICY</a>
+      </div>
+      <div class="footer-col">
+        <span>EXPLORE</span>
+        <a href="../telacatalogo/catalogo.html">SHOP</a>
+        <a href="#">OUR STORY</a>
+        <a href="#">STOCKISTS</a>
+      </div>
+      <div class="footer-col">
+        <span>FOLLOW</span>
+        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fa-brands fa-pinterest"></i> Pinterest</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function goToProduct(category, title, price, image, sizes) {
+      var productData = { title: title, price: price, image: image, sizes: sizes, category: category };
+      sessionStorage.setItem('walkwordSelectedProduct', JSON.stringify(productData));
+      window.location.href = '../teladetalhes/page.html';
+    }
+    function handleNewsletter(e) {
+      e.preventDefault();
+      var email = document.getElementById('nl-email').value;
+      if (window.WalkWord) {
+        var result = WalkWord.newsletter.subscribe(email);
+        WalkWord.showToast(result.message, result.success ? 'success' : 'warning');
+      }
+      e.target.reset();
+    }
+  </script>
+  <script src="../js/app.js"></script>
+  <script src="../js/cart-drawer.js"></script>
+  <script src="navegacao.js"></script>
+  <script src="../js/site-header.js" defer></script>
+</body>
+
+</html>

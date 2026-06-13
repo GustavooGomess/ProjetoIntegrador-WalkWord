@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="WALKWORD — Finalizar compra. Preencha seus dados de entrega e pagamento.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/site-header.css">
+  <link rel="stylesheet" href="pagamento.css">
+  <title>WALKWORD — Checkout</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-brand">
+      <a href="../telacatalogo/catalogo.html"><h1>WALKWORD</h1></a>
+    </div>
+    <nav class="nav_links" aria-label="Navegação principal">
+      <a href="../navegacao/navegacao.html">Editorial</a>
+      <a href="#" class="nav-atelier">Atelier</a>
+      <a href="#" class="nav-menu-link">Menu</a>
+      <a href="../telacatalogo/catalogo.html">Shop</a>
+    </nav>
+    <div class="icons_search">
+      <button id="search-toggle-btn" class="icon-btn" type="button" aria-label="Abrir busca">
+        <img src="../telacatalogo/img/lupa (1).png" alt="Buscar">
+      </button>
+      <button id="cart-btn" class="icon-btn" type="button" aria-label="Abrir carrinho">
+        <img src="../telacatalogo/img/sacola-de-compras.png" alt="Carrinho">
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button id="user-btn" class="icon-btn" type="button" aria-label="Abrir menu de usuário">
+        <img src="../telacatalogo/img/user (2).png" alt="Usuário">
+      </button>
+    </div>
+  </header>
+
+  <div id="search-bar-container" class="search-bar-container">
+    <input id="search-input" type="text" placeholder="Buscar no look..." />
+  </div>
+  <div id="user-menu" class="user-menu">
+    <a id="menu-login-link" href="../perfil/perfil.html">Entrar</a>
+    <a id="menu-orders-link" href="#">Meus pedidos</a>
+    <a id="menu-favorites-link" href="../favoritos/favoritos.html">Favoritos</a>
+  </div>
+
+  <!-- Atelier overlay -->
+  <div id="atelier-overlay" class="atelier-overlay" role="dialog" aria-modal="true">
+    <div class="atelier-content">
+      <button class="atelier-close" id="atelier-close-btn">&times;</button>
+      <div class="atelier-inner">
+        <div class="atelier-text">
+          <span class="atelier-label">ATELIER WALKWORD</span>
+          <h2>Onde cada peça nasce com propósito.</h2>
+          <p>Nosso ateliê em Porto produz moda consciente com materiais rastreáveis, artesãos certificados e zero desperdício.</p>
+          <ul>
+            <li><i class="fa-solid fa-leaf"></i> 100% lã orgânica certificada</li>
+            <li><i class="fa-solid fa-recycle"></i> Zero desperdício no processo</li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> Artesãos locais remunerados justamente</li>
+            <li><i class="fa-solid fa-tag"></i> Cada peça tem ID rastreável</li>
+          </ul>
+          <a href="../telacatalogo/catalogo.html" class="atelier-cta">Explorar coleção</a>
+        </div>
+        <div class="atelier-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80')"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu drawer -->
+  <div id="menu-drawer" class="menu-drawer" role="dialog" aria-modal="true">
+    <div class="menu-drawer-inner">
+      <button class="menu-drawer-close" id="menu-drawer-close">&times;</button>
+      <h3>CATEGORIAS</h3>
+      <nav class="drawer-nav">
+        <a href="../telacatalogo/catalogo.html?cat=footwear"><i class="fa-solid fa-shoe-prints"></i> Footwear</a>
+        <a href="../telacatalogo/catalogo.html?cat=shirts"><i class="fa-solid fa-shirt"></i> Camisas</a>
+        <a href="../telacatalogo/catalogo.html?cat=blazers"><i class="fa-solid fa-vest"></i> Blazers</a>
+        <a href="../telacatalogo/catalogo.html?cat=outerwear"><i class="fa-solid fa-person-shelter"></i> Outerwear</a>
+        <a href="../telacatalogo/catalogo.html?cat=accessories"><i class="fa-solid fa-glasses"></i> Acessórios</a>
+      </nav>
+      <hr>
+      <h3>LINKS RÁPIDOS</h3>
+      <nav class="drawer-nav">
+        <a href="../navegacao/navegacao.html"><i class="fa-solid fa-newspaper"></i> Editorial</a>
+        <a href="../perfil/perfil.html"><i class="fa-solid fa-user"></i> Minha Conta</a>
+        <a href="../privacidade/privacidade.html"><i class="fa-solid fa-shield-halved"></i> Privacidade</a>
+      </nav>
+    </div>
+  </div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <p class="pagamento-secure-banner"><i class="fa-solid fa-lock"></i> SECURE CHECKOUT</p>
+
+  <div class="checkout-progress">
+    <div class="steps">
+      <div class="step active" data-step="1">SHIPPING</div>
+      <div class="step" data-step="2">PAYMENT</div>
+      <div class="step" data-step="3">REVIEW</div>
+    </div>
+    <div class="progress-line">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
+
+  <section class="Shop">
+    <div class="coluna1">
+      <div class="info">
+        <h1>Shipping Information</h1>
+        <div class="unico">
+          <p>FULL NAME</p>
+          <input type="text" placeholder="Juliana Moore" autocomplete="name">
+        </div>
+        <div class="combo">
+          <div class="combo1">
+            <p>EMAIL ADDRESS</p>
+            <input type="email" placeholder="julianne@atelier.com" autocomplete="email">
+          </div>
+          <div class="combo1">
+            <p>PHONE NUMBER</p>
+            <input type="tel" placeholder="(11) 99999-9999" autocomplete="tel">
+          </div>
+        </div>
+        <div class="unico">
+          <p>ADDRESS</p>
+          <input type="text" id="endereco" placeholder="123 Rua das Flores, São Paulo, SP" autocomplete="street-address">
+        </div>
+        <div class="combo">
+          <div class="combo1">
+            <p>CITY</p>
+            <input type="text" id="cidade" placeholder="SÃO PAULO" autocomplete="address-level2">
+          </div>
+          <div class="combo1">
+            <p>POSTAL CODE</p>
+            <input type="text" id="cep" placeholder="00000-000" autocomplete="postal-code" maxlength="9">
+          </div>
+        </div>
+      </div>
+
+      <div class="payment">
+        <h1>Payment Method</h1>
+        <div class="card2">
+          <div class="card" style="border-color: #6A5E33;">
+            <div class="pay">
+              <i class="fa-solid fa-credit-card"></i>
+              <i class="fa-regular fa-circle-dot"></i>
+            </div>
+            <p>CREDIT CARD</p>
+            <span>UP TO 12X</span>
+          </div>
+          <div class="card">
+            <div class="pay">
+              <i class="fa-solid fa-qrcode"></i>
+              <i class="fa-regular fa-circle"></i>
+            </div>
+            <p>PIX</p>
+            <span>INSTANT APPROVAL</span>
+          </div>
+          <div class="card">
+            <div class="pay">
+              <i class="fa-solid fa-barcode"></i>
+              <i class="fa-regular fa-circle"></i>
+            </div>
+            <p>BOLETO</p>
+            <span>1-3 BUSINESS DAYS</span>
+          </div>
+        </div>
+        <div class="secure">
+          <div class="i">
+            <i class="fa-solid fa-lock"></i>
+            <p>SSL SECURE CONNECTION</p>
+          </div>
+          <div class="i">
+            <i class="fa-solid fa-shield-halved"></i>
+            <p>SAFE PAY CERTIFIED</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fechamento">
+      <h1>Order Summary</h1>
+      <div id="order-items-container">
+        <!-- Dynamic cart items will be loaded here -->
+      </div>
+      <div class="eco">
+        <div class="circle">
+          <i class="fa-solid fa-leaf"></i>
+        </div>
+        <div class="text2">
+          <h1>Eco-Friendly Packaging</h1>
+          <p>Carbon neutral shipping via electric vehicle</p>
+        </div>
+        <div class="circle-check">
+          <i class="fa-solid fa-check"></i>
+        </div>
+      </div>
+      <div class="cart-summary-container">
+        <div class="summary-row">
+          <span class="summary-label">Subtotal</span>
+          <span class="summary-value" id="pay-subtotal">R$ 0,00</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Shipping</span>
+          <span class="summary-value highlight-text">Free</span>
+        </div>
+        <div class="summary-row">
+          <span class="summary-label">Tax (5%)</span>
+          <span class="summary-value" id="pay-tax">R$ 0,00</span>
+        </div>
+        <hr class="summary-divider" />
+        <div class="summary-row total-row">
+          <span class="summary-label">Total</span>
+          <span class="summary-value" id="pay-total">R$ 0,00</span>
+        </div>
+        <button type="button" id="complete-order-btn">COMPLETE ORDER</button>
+        <p class="terms-text">BY COMPLETING YOUR ORDER, YOU AGREE TO OUR TERMS.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h1>WALKWORD</h1>
+    <p>© 2026 WALKWORD. CONSCIOUS CRAFTSMANSHIP.</p>
+    <div class="footer-links">
+      <a href="../privacidade/privacidade.html">PRIVACY POLICY</a>
+      <a href="#">CONTACT</a>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/cart-drawer.js"></script>
+  <script src="pagamento.js"></script>
+  <script src="../js/site-header.js" defer></script>
+  <script>
+    // Overlay/drawer logic
+    (function () {
+      var atelierOverlay = document.getElementById('atelier-overlay');
+      var atelierCloseBtn = document.getElementById('atelier-close-btn');
+      var menuDrawer = document.getElementById('menu-drawer');
+      var menuDrawerClose = document.getElementById('menu-drawer-close');
+      var drawerBackdrop = document.getElementById('drawer-backdrop');
+
+      document.querySelectorAll('.nav-atelier').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); atelierOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; });
+      });
+      if (atelierCloseBtn) atelierCloseBtn.addEventListener('click', function () { atelierOverlay.classList.remove('open'); document.body.style.overflow = ''; });
+      if (atelierOverlay) atelierOverlay.addEventListener('click', function (e) { if (e.target === atelierOverlay) { atelierOverlay.classList.remove('open'); document.body.style.overflow = ''; } });
+
+      document.querySelectorAll('.nav-menu-link').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); menuDrawer.classList.add('open'); drawerBackdrop.classList.add('open'); document.body.style.overflow = 'hidden'; });
+      });
+      function closeDrawer() { menuDrawer.classList.remove('open'); drawerBackdrop.classList.remove('open'); document.body.style.overflow = ''; }
+      if (menuDrawerClose) menuDrawerClose.addEventListener('click', closeDrawer);
+      if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+    })();
+  </script>
+</body>
+
+</html>

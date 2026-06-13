@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WALKWORD — Shop</title>
+  <link rel="stylesheet" href="../css/site-header.css">
+  <link rel="stylesheet" href="catalogo.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-brand">
+      <a href="../navegacao/navegacao.html">
+        <h1>WALKWORD</h1>
+      </a>
+    </div>
+    <nav class="nav_links" aria-label="Navegação principal">
+      <a href="../navegacao/navegacao.html" class="nav-editorial">Editorial</a>
+      <a href="#" class="nav-atelier">Atelier</a>
+      <a href="#" class="nav-menu-link">Menu</a>
+      <a href="catalogo.html" class="nav-shop">Shop</a>
+    </nav>
+    <div class='icons_search'>
+      <button id="search-toggle-btn" class="icon-btn" type="button" aria-label="Abrir busca">
+        <img src="./img/lupa (1).png" alt="Buscar">
+      </button>
+      <button id="cart-btn" class="icon-btn" type="button" aria-label="Abrir carrinho">
+        <img src="./img/sacola-de-compras.png" alt="Carrinho">
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button id="user-btn" class="icon-btn" type="button" aria-label="Abrir menu de usuário">
+        <img src="./img/user (2).png" alt="Usuário">
+      </button>
+    </div>
+  </header>
+
+  <div id="search-bar-container" class="search-bar-container">
+    <input id="search-input" type="text" placeholder="Buscar no look..." />
+  </div>
+  <div id="user-menu" class="user-menu">
+    <a id="menu-login-link" href="../perfil/perfil.html">Entrar</a>
+    <a id="menu-orders-link" href="../perfil/perfil.html">Meus pedidos</a>
+    <a id="menu-favorites-link" href="../favoritos/favoritos.html">Favoritos</a>
+  </div>
+
+  <!-- Atelier overlay -->
+  <div id="atelier-overlay" class="atelier-overlay" role="dialog" aria-modal="true" aria-label="Atelier WALKWORD">
+    <div class="atelier-content">
+      <button class="atelier-close" id="atelier-close-btn" aria-label="Fechar">&times;</button>
+      <div class="atelier-inner">
+        <div class="atelier-text">
+          <span class="atelier-label">ATELIER WALKWORD</span>
+          <h2>Onde cada peça nasce com propósito.</h2>
+          <p>Nosso ateliê em Porto produz moda consciente com materiais rastreáveis, artesãos certificados e zero
+            desperdício. Cada peça é numerada, datada e assinada.</p>
+          <ul>
+            <li><i class="fa-solid fa-leaf"></i> 100% lã orgânica certificada</li>
+            <li><i class="fa-solid fa-recycle"></i> Zero desperdício no processo</li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> Artesãos locais remunerados justamente</li>
+            <li><i class="fa-solid fa-tag"></i> Cada peça tem ID rastreável</li>
+          </ul>
+          <a href="../navegacao/navegacao.html" class="atelier-cta">Explorar coleção</a>
+        </div>
+        <div class="atelier-img"
+          style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80')">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu drawer -->
+  <div id="menu-drawer" class="menu-drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="menu-drawer-inner">
+      <button class="menu-drawer-close" id="menu-drawer-close" aria-label="Fechar">&times;</button>
+      <h3>CATEGORIAS</h3>
+      <nav class="drawer-nav">
+        <a href="catalogo.html?cat=footwear"><i class="fa-solid fa-shoe-prints"></i> Footwear</a>
+        <a href="catalogo.html?cat=shirts"><i class="fa-solid fa-shirt"></i> Camisas</a>
+        <a href="catalogo.html?cat=blazers"><i class="fa-solid fa-vest"></i> Blazers</a>
+        <a href="catalogo.html?cat=outerwear"><i class="fa-solid fa-person-shelter"></i> Outerwear</a>
+        <a href="catalogo.html?cat=accessories"><i class="fa-solid fa-glasses"></i> Acessórios</a>
+      </nav>
+      <hr>
+      <h3>LINKS RÁPIDOS</h3>
+      <nav class="drawer-nav">
+        <a href="../navegacao/navegacao.html"><i class="fa-solid fa-newspaper"></i> Editorial</a>
+        <a href="../perfil/perfil.html"><i class="fa-solid fa-user"></i> Minha Conta</a>
+        <a href="../privacidade/privacidade.html"><i class="fa-solid fa-shield-halved"></i> Privacidade</a>
+      </nav>
+    </div>
+  </div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Carrinho">
+    <div class="cart-drawer-inner">
+      <div class="cart-drawer-header">
+        <h3>Meu Carrinho</h3>
+        <button class="cart-drawer-close" id="cart-drawer-close" aria-label="Fechar">&#x2715;</button>
+      </div>
+      <div id="cart-drawer-items" class="cart-drawer-items"></div>
+      <div class="cart-drawer-footer" id="cart-drawer-footer" style="display:none;">
+        <div class="cart-drawer-subtotal">
+          <span>Subtotal</span>
+          <strong id="cart-drawer-total">R$ 0,00</strong>
+        </div>
+        <a href="../Pagamentos/pagamento.html" class="cart-drawer-checkout-btn">Finalizar Compra <i
+            class="fa-solid fa-arrow-right"></i></a>
+        <p class="cart-drawer-note"><i class="fa-solid fa-leaf"></i> Embalagem eco-friendly incluída</p>
+      </div>
+      <div class="cart-drawer-empty" id="cart-drawer-empty">
+        <i class="fa-regular fa-bag-shopping"></i>
+        <p>Seu carrinho está vazio</p>
+        <a href="catalogo.html">Explorar coleção <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+  <div id="cart-backdrop" class="drawer-backdrop"></div>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="filter-header">
+        <h2>Filtros</h2>
+        <button type="button" class="clear-btn" id="clear-filters">Limpar tudo</button>
+      </div>
+
+      <!-- CATEGORIA -->
+      <div class="filter-section">
+        <h3>Categoria</h3>
+        <label class="checkbox-label"><input type="checkbox" name="category" value="footwear"> Calçados</label>
+        <label class="checkbox-label"><input type="checkbox" name="category" value="shirts"> Camisas</label>
+        <label class="checkbox-label"><input type="checkbox" name="category" value="blazers"> Blazers</label>
+        <label class="checkbox-label"><input type="checkbox" name="category" value="outerwear"> Casacos</label>
+        <label class="checkbox-label"><input type="checkbox" name="category" value="accessories"> Acessórios</label>
+      </div>
+
+      <!-- CONDIÇÃO -->
+      <div class="filter-section">
+        <h3>Condição</h3>
+        <div class="condition-pills" role="group" aria-label="Condição">
+          <button type="button" class="cond-pill" data-condition="new">
+            <span class="cond-dot cond-dot--new"></span>
+            Novo
+          </button>
+          <button type="button" class="cond-pill" data-condition="pre-owned">
+            <span class="cond-dot cond-dot--used"></span>
+            Seminovo
+          </button>
+        </div>
+      </div>
+
+      <!-- FAIXA DE PREÇO -->
+      <div class="filter-section">
+        <h3>Faixa de preço</h3>
+        <div class="price-display">
+          <span id="price-range-label">R$ 120 — R$ 2.100</span>
+        </div>
+        <div class="slider-track" id="price-slider" role="slider" aria-label="Faixa de preço" aria-valuemin="120"
+          aria-valuemax="2100">
+          <div class="slider-fill" id="slider-fill"></div>
+          <button type="button" class="slider-thumb left" id="thumb-min" aria-label="Preço mínimo"></button>
+          <button type="button" class="slider-thumb right" id="thumb-max" aria-label="Preço máximo"></button>
+        </div>
+      </div>
+
+      <!-- TAMANHO -->
+      <div class="filter-section">
+        <h3>Tamanho</h3>
+        <p class="size-group-label">Roupas</p>
+        <div class="size-grid" role="group" aria-label="Tamanho de roupas">
+          <button type="button" class="size-btn" data-size="PP">PP</button>
+          <button type="button" class="size-btn" data-size="P">P</button>
+          <button type="button" class="size-btn" data-size="M">M</button>
+          <button type="button" class="size-btn" data-size="G">G</button>
+          <button type="button" class="size-btn" data-size="GG">GG</button>
+        </div>
+        <p class="size-group-label size-group-label--second">Calçados (EU)</p>
+        <div class="size-grid size-grid--shoes" role="group" aria-label="Tamanho de calçados">
+          <button type="button" class="size-btn" data-size="37">37</button>
+          <button type="button" class="size-btn" data-size="38">38</button>
+          <button type="button" class="size-btn" data-size="39">39</button>
+          <button type="button" class="size-btn" data-size="40">40</button>
+          <button type="button" class="size-btn" data-size="41">41</button>
+          <button type="button" class="size-btn" data-size="42">42</button>
+          <button type="button" class="size-btn" data-size="43">43</button>
+        </div>
+      </div>
+
+      <!-- MARCA -->
+      <div class="filter-section">
+        <h3>Marca</h3>
+        <label class="checkbox-label"><input type="checkbox" name="brand" value="the-row"> The Row</label>
+        <label class="checkbox-label"><input type="checkbox" name="brand" value="lemaire"> Lemaire</label>
+        <label class="checkbox-label"><input type="checkbox" name="brand" value="jil-sander"> Jil Sander</label>
+        <label class="checkbox-label"><input type="checkbox" name="brand" value="toteme"> Toteme</label>
+        <label class="checkbox-label"><input type="checkbox" name="brand" value="salomon"> Salomon</label>
+        <label class="checkbox-label"><input type="checkbox" name="brand" value="walkword"> Walkword</label>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="content-header">
+        <div class="title-area">
+          <span class="subtitle" id="catalog-subtitle">COLEÇÃO CURADA</span>
+          <h1 id="products-count-heading"><span id="products-count">35</span> produtos encontrados</h1>
+        </div>
+        <div class="controls">
+          <button type="button" class="sort-btn" id="sort-btn" aria-haspopup="listbox" aria-expanded="false">ORDENAR:
+            RELEVÂNCIA ▾</button>
+          <div class="view-toggles" role="group" aria-label="Layout">
+            <button type="button" class="view-btn active" data-view="grid" aria-pressed="true" title="Grid">▦</button>
+            <button type="button" class="view-btn" data-view="list" aria-pressed="false" title="List">▤</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-grid" id="product-grid">
+
+        <!-- ===== FOOTWEAR ===== -->
+        <article class="product-card" data-category="footwear" data-type="loafer" data-condition="new" data-price="700"
+          data-brand="the-row" data-sizes="38,39,40,41"
+          data-image="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">LWG Gold Certified</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Soft Loafer in Nappa"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">THE ROW</span><span class="price">R$ 700</span></div>
+            <h3 class="product-title">Soft Loafer in Nappa</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(48)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Loafer</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="footwear" data-type="sneaker" data-condition="pre-owned"
+          data-price="420" data-brand="jil-sander" data-sizes="39,40,41,42"
+          data-image="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Archival Piece</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Classic Canvas Low-top"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">JIL SANDER</span><span class="price">R$ 420</span></div>
+            <h3 class="product-title">Classic Canvas Low-top</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(32)</span>
+            </div>
+            <span class="condition">Condition: <strong>Pre-owned</strong></span>
+            <span class="product-type-tag">Tênis</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="footwear" data-type="boot" data-condition="new" data-price="850"
+          data-brand="lemaire" data-sizes="38,39,40,41,42"
+          data-image="../telacatalogo/img/pebbled_leather_desert_boot.png">
+          <div class="image-placeholder"
+            style="background-image: url('../telacatalogo/img/pebbled_leather_desert_boot.png');">
+            <img src="../telacatalogo/img/pebbled_leather_desert_boot.png" alt="Pebbled Leather Desert Boot"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px; z-index: 1;">
+            <span class="badge" style="position: relative; z-index: 2;">Recycled Sole</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Pebbled Leather Desert Boot"
+              style="z-index: 2;"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">LEMAIRE</span><span class="price">R$ 850</span></div>
+            <h3 class="product-title">Pebbled Leather Desert Boot</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(12)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Bota</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="footwear" data-type="boot" data-condition="new" data-price="1200"
+          data-brand="walkword" data-sizes="37,38,39,40,41"
+          data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">WalkWord Exclusive</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Structured Chelsea Boot"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 1.200</span></div>
+            <h3 class="product-title">Structured Chelsea Boot</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(27)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Bota</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="footwear" data-type="sneaker" data-condition="new" data-price="380"
+          data-brand="salomon" data-sizes="39,40,41,42,43"
+          data-image="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Vegan</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="XT-6 Advanced Technical"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">SALOMON S/LAB</span><span class="price">R$ 380</span></div>
+            <h3 class="product-title">XT-6 Advanced Technical</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(8)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Tênis</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="footwear" data-type="boot" data-condition="new" data-price="950"
+          data-brand="lemaire" data-sizes="38,39,40,41,42" data-image="../telacatalogo/img/suede_derby_shoe.png">
+          <div class="image-placeholder" style="background-image: url('../telacatalogo/img/suede_derby_shoe.png');">
+            <img src="../telacatalogo/img/suede_derby_shoe.png" alt="Suede Derby Shoe"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px; z-index: 1;">
+            <span class="badge" style="position: relative; z-index: 2;">Suede Premium</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Suede Derby Shoe" style="z-index: 2;"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">LEMAIRE</span><span class="price">R$ 950</span></div>
+            <h3 class="product-title">Suede Derby Shoe</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(44)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Bota</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="footwear" data-type="sneaker" data-condition="new"
+          data-price="1100" data-brand="the-row" data-sizes="39,40,41,42"
+          data-image="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Luxury Minimalist</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Minimalist Leather Sneaker"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">THE ROW</span><span class="price">R$ 1.100</span></div>
+            <h3 class="product-title">Minimalist Leather Sneaker</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(19)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Tênis</span>
+          </div>
+        </article>
+
+        <!-- ===== CAMISAS ===== -->
+        <article class="product-card" data-category="shirts" data-type="shirt" data-condition="new" data-price="280"
+          data-brand="walkword" data-sizes="PP,P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Organic Cotton</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Oversized Organic Tee"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 280</span></div>
+            <h3 class="product-title">Oversized Organic Tee</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(33)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Camisa</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="shirts" data-type="social-shirt" data-condition="new"
+          data-price="460" data-brand="toteme" data-sizes="P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Linen Blend</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Poplin Social Shirt"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">TOTEME</span><span class="price">R$ 460</span></div>
+            <h3 class="product-title">Poplin Social Shirt</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(15)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Camisa Social</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="shirts" data-type="shirt" data-condition="pre-owned"
+          data-price="190" data-brand="jil-sander" data-sizes="PP,P,M,G"
+          data-image="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Archival</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Relaxed Fit T-Shirt"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">JIL SANDER</span><span class="price">R$ 190</span></div>
+            <h3 class="product-title">Relaxed Fit T-Shirt</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(56)</span>
+            </div>
+            <span class="condition">Condition: <strong>Pre-owned</strong></span>
+            <span class="product-type-tag">Camisa</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="shirts" data-type="social-shirt" data-condition="new"
+          data-price="580" data-brand="the-row" data-sizes="P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Silk Cotton</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Classic Button-Down Oxford"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">THE ROW</span><span class="price">R$ 580</span></div>
+            <h3 class="product-title">Classic Button-Down Oxford</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(7)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Camisa Social</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="shirts" data-type="shirt" data-condition="new" data-price="680"
+          data-brand="lemaire" data-sizes="PP,P,M,G"
+          data-image="https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Pure Silk</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Silk Crepe Blouse"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">LEMAIRE</span><span class="price">R$ 680</span></div>
+            <h3 class="product-title">Silk Crepe Blouse</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(22)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Camisa</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="shirts" data-type="shirt" data-condition="new" data-price="340"
+          data-brand="toteme" data-sizes="P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Fine Knit</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Knit Polo Shirt"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">TOTEME</span><span class="price">R$ 340</span></div>
+            <h3 class="product-title">Knit Polo Shirt</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(38)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Camisa</span>
+          </div>
+        </article>
+
+        <!-- ===== BLAZERS ===== -->
+        <article class="product-card" data-category="blazers" data-type="blazer" data-condition="new" data-price="1800"
+          data-brand="walkword" data-sizes="P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">WalkWord Signature</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Structured Wool Blazer"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 1.800</span></div>
+            <h3 class="product-title">Structured Wool Blazer</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(31)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Blazer</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="blazers" data-type="blazer" data-condition="pre-owned"
+          data-price="920" data-brand="lemaire" data-sizes="P,M,G"
+          data-image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Archival Piece</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Deconstructed Linen Blazer"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">LEMAIRE</span><span class="price">R$ 920</span></div>
+            <h3 class="product-title">Deconstructed Linen Blazer</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(18)</span>
+            </div>
+            <span class="condition">Condition: <strong>Pre-owned</strong></span>
+            <span class="product-type-tag">Blazer</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="blazers" data-type="blazer" data-condition="new" data-price="1450"
+          data-brand="the-row" data-sizes="PP,P,M,G,GG" data-image="../telacatalogo/img/oversized_cocoon_blazer.png">
+          <div class="image-placeholder"
+            style="background-image: url('../telacatalogo/img/oversized_cocoon_blazer.png');">
+            <img src="../telacatalogo/img/oversized_cocoon_blazer.png" alt="Oversized Cocoon Blazer"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px; z-index: 1;">
+            <span class="badge" style="position: relative; z-index: 2;">Merino Wool</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Oversized Cocoon Blazer"
+              style="z-index: 2;"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">THE ROW</span><span class="price">R$ 1.450</span></div>
+            <h3 class="product-title">Oversized Cocoon Blazer</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(9)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Blazer</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="blazers" data-type="blazer" data-condition="new" data-price="1250"
+          data-brand="jil-sander" data-sizes="PP,P,M,G"
+          data-image="https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Premium Tailored</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Cropped Linen Blazer"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">JIL SANDER</span><span class="price">R$ 1.250</span></div>
+            <h3 class="product-title">Cropped Linen Blazer</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(41)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Blazer</span>
+          </div>
+        </article>
+
+        <!-- ===== OUTERWEAR ===== -->
+        <article class="product-card" data-category="outerwear" data-type="coat" data-condition="new" data-price="1600"
+          data-brand="walkword" data-sizes="P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Eco Certified</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Trench Coat Atemporal"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 1.600</span></div>
+            <h3 class="product-title">Trench Coat Atemporal</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(12)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Casaco</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="outerwear" data-type="coat" data-condition="pre-owned"
+          data-price="750" data-brand="toteme" data-sizes="P,M,G"
+          data-image="https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1584184924103-e310d9dc82fc?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Archival</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Double-Breasted Overcoat"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">TOTEME</span><span class="price">R$ 750</span></div>
+            <h3 class="product-title">Double-Breasted Overcoat</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(27)</span>
+            </div>
+            <span class="condition">Condition: <strong>Pre-owned</strong></span>
+            <span class="product-type-tag">Casaco</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="outerwear" data-type="coat" data-condition="new" data-price="890"
+          data-brand="salomon" data-sizes="P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1544923246-77307dd654cb?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1544923246-77307dd654cb?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Weatherproof</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Technical Parka"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">SALOMON S/LAB</span><span class="price">R$ 890</span></div>
+            <h3 class="product-title">Technical Parka</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(8)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Casaco</span>
+          </div>
+        </article>
+
+        <!-- ===== ACCESSORIES ===== -->
+        <article class="product-card" data-category="accessories" data-type="bag" data-condition="new" data-price="620"
+          data-brand="walkword" data-sizes="U"
+          data-image="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Vegan Leather</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Versa Tote Bag"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 620</span></div>
+            <h3 class="product-title">Versa Tote Bag</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(44)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Bolsa</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="accessories" data-type="belt" data-condition="new" data-price="240"
+          data-brand="walkword" data-sizes="P,M,G"
+          data-image="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Handcrafted</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Stone Fit Leather Belt"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 240</span></div>
+            <h3 class="product-title">Stone Fit Leather Belt</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(19)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Cinto</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="accessories" data-type="bag" data-condition="new" data-price="320"
+          data-brand="toteme" data-sizes="U"
+          data-image="https://images.unsplash.com/photo-1520635360276-79f3dbd809f6?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1520635360276-79f3dbd809f6?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Pure Cashmere</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Wool Cashmere Scarf"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">TOTEME</span><span class="price">R$ 320</span></div>
+            <h3 class="product-title">Wool Cashmere Scarf</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(33)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Bolsa</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="accessories" data-type="bag" data-condition="new" data-price="290"
+          data-brand="lemaire" data-sizes="U"
+          data-image="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image: url('https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Premium Acetate</span>
+
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Acetate D-Frame Sunglasses"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">LEMAIRE</span><span class="price">R$ 290</span></div>
+            <h3 class="product-title">Acetate D-Frame Sunglasses</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(15)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Bolsa</span>
+          </div>
+        </article>
+
+        <!-- ===== NOVOS PRODUTOS EXTRA ===== -->
+
+        <!-- FOOTWEAR EXTRA -->
+        <article class="product-card" data-category="footwear" data-type="loafer" data-condition="new" data-price="890"
+          data-brand="toteme" data-sizes="37,38,39,40,41"
+          data-image="https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image:url('https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Vegan Leather</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Square Toe Mule"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">TOTEME</span><span class="price">R$ 890</span></div>
+            <h3 class="product-title">Square Toe Mule</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(21)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Loafer</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="footwear" data-type="boot" data-condition="new" data-price="1350"
+          data-brand="walkword" data-sizes="38,39,40,41,42" data-image="../telacatalogo/img/heritage_ankle_boot.png">
+          <div class="image-placeholder" style="background-image:url('../telacatalogo/img/heritage_ankle_boot.png');">
+            <img src="../telacatalogo/img/heritage_ankle_boot.png" alt="Heritage Ankle Boot"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px; z-index: 1;">
+            <span class="badge" style="position: relative; z-index: 2;">WalkWord Signature</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Heritage Ankle Boot"
+              style="z-index: 2;"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 1.350</span></div>
+            <h3 class="product-title">Heritage Ankle Boot</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(17)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Bota</span>
+          </div>
+        </article>
+
+        <!-- SHIRTS EXTRA -->
+        <article class="product-card" data-category="shirts" data-type="shirt" data-condition="new" data-price="320"
+          data-brand="walkword" data-sizes="PP,P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image:url('https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">GOTS Certified</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Washed Linen Shirt"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 320</span></div>
+            <h3 class="product-title">Washed Linen Shirt</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(65)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Camisa</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="shirts" data-type="social-shirt" data-condition="new"
+          data-price="520" data-brand="lemaire" data-sizes="P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image:url('https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Sustainable Dye</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Striped Cotton Oxford"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">LEMAIRE</span><span class="price">R$ 520</span></div>
+            <h3 class="product-title">Striped Cotton Oxford</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(29)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Camisa Social</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="shirts" data-type="shirt" data-condition="pre-owned"
+          data-price="145" data-brand="toteme" data-sizes="PP,P,M,G"
+          data-image="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image:url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Pre-Loved</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Ribbed Modal Tank"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">TOTEME</span><span class="price">R$ 145</span></div>
+            <h3 class="product-title">Ribbed Modal Tank</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(43)</span>
+            </div>
+            <span class="condition">Condition: <strong>Pre-owned</strong></span>
+            <span class="product-type-tag">Camisa</span>
+          </div>
+        </article>
+
+        <!-- BLAZERS EXTRA -->
+        <article class="product-card" data-category="blazers" data-type="blazer" data-condition="new" data-price="1680"
+          data-brand="toteme" data-sizes="PP,P,M,G,GG"
+          data-image="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image:url('https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">GOTS Wool</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Double-Face Wool Blazer"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">TOTEME</span><span class="price">R$ 1.680</span></div>
+            <h3 class="product-title">Double-Face Wool Blazer</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(11)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Blazer</span>
+          </div>
+        </article>
+
+        <!-- OUTERWEAR EXTRA -->
+        <article class="product-card" data-category="outerwear" data-type="coat" data-condition="new" data-price="2100"
+          data-brand="walkword" data-sizes="P,M,G,GG" data-image="../telacatalogo/img/sculptural_overcoat.png">
+          <div class="image-placeholder" style="background-image:url('../telacatalogo/img/sculptural_overcoat.png');">
+            <img src="../telacatalogo/img/sculptural_overcoat.png" alt="Sculptural Overcoat"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px; z-index: 1;">
+            <span class="badge" style="position: relative; z-index: 2;">WalkWord Signature</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Sculptural Overcoat"
+              style="z-index: 2;"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">WALKWORD</span><span class="price">R$ 2.100</span></div>
+            <h3 class="product-title">Sculptural Overcoat</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(9)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Casaco</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="outerwear" data-type="coat" data-condition="new" data-price="980"
+          data-brand="jil-sander" data-sizes="P,M,G,GG" data-image="../telacatalogo/img/quilted_utility_jacket.png">
+          <div class="image-placeholder"
+            style="background-image:url('../telacatalogo/img/quilted_utility_jacket.png');">
+            <img src="../telacatalogo/img/quilted_utility_jacket.png" alt="Quilted Utility Jacket"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px; z-index: 1;">
+            <span class="badge" style="position: relative; z-index: 2;">Recycled Wool</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Quilted Utility Jacket"
+              style="z-index: 2;"><i class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">JIL SANDER</span><span class="price">R$ 980</span></div>
+            <h3 class="product-title">Quilted Utility Jacket</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(14)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Casaco</span>
+          </div>
+        </article>
+
+        <!-- ACCESSORIES EXTRA -->
+        <article class="product-card" data-category="accessories" data-type="bag" data-condition="new" data-price="480"
+          data-brand="the-row" data-sizes="U"
+          data-image="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image:url('https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Vegetable Tanned</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Mini Saddle Bag"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">THE ROW</span><span class="price">R$ 480</span></div>
+            <h3 class="product-title">Mini Saddle Bag</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <span>(37)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Bolsa</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="accessories" data-type="belt" data-condition="new" data-price="190"
+          data-brand="lemaire" data-sizes="U"
+          data-image="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image:url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Silk Twill</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Printed Silk Scarf"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">LEMAIRE</span><span class="price">R$ 190</span></div>
+            <h3 class="product-title">Printed Silk Scarf</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(55)</span>
+            </div>
+            <span class="condition">Condition: <strong>New</strong></span>
+            <span class="product-type-tag">Lenco</span>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="accessories" data-type="bag" data-condition="pre-owned"
+          data-price="260" data-brand="jil-sander" data-sizes="U"
+          data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80">
+          <div class="image-placeholder"
+            style="background-image:url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80');">
+            <span class="badge">Archival</span>
+            <button class="card-fav-btn" aria-label="Favoritar" data-product="Canvas Backpack"><i
+                class="fa-regular fa-heart"></i></button>
+          </div>
+          <div class="card-info">
+            <div class="brand-price"><span class="brand">JIL SANDER</span><span class="price">R$ 260</span></div>
+            <h3 class="product-title">Canvas Backpack</h3>
+            <div class="card-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+              <span>(28)</span>
+            </div>
+            <span class="condition">Condition: <strong>Pre-owned</strong></span>
+            <span class="product-type-tag">Mochila</span>
+          </div>
+        </article>
+
+      </div><!-- end product-grid -->
+
+      <nav class="pagination" id="pagination" aria-label="Pagination"></nav>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/cart-drawer.js"></script>
+  <script src="catalogo.js" defer></script>
+  <script src="../js/site-header.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WALKWORD — Favoritos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/site-header.css">
+  <link rel="stylesheet" href="favoritos.css">
+</head>
+
+<body>
+  <header>
+    <div class="header-brand">
+      <a href="../navegacao/navegacao.html"><h1>WALKWORD</h1></a>
+    </div>
+    <nav class="nav_links" aria-label="Navegação principal">
+      <a href="../navegacao/navegacao.html">Editorial</a>
+      <a href="#" class="nav-atelier">Atelier</a>
+      <a href="#" class="nav-menu-link">Menu</a>
+      <a href="../telacatalogo/catalogo.html">Shop</a>
+    </nav>
+    <div class="icons_search">
+      <button id="search-toggle-btn" class="icon-btn" type="button" aria-label="Abrir busca">
+        <img src="../telacatalogo/img/lupa (1).png" alt="Buscar">
+      </button>
+      <button id="cart-btn" class="icon-btn" type="button" aria-label="Abrir carrinho">
+        <img src="../telacatalogo/img/sacola-de-compras.png" alt="Carrinho">
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button id="user-btn" class="icon-btn" type="button" aria-label="Abrir menu de usuário">
+        <img src="../telacatalogo/img/user (2).png" alt="Usuário">
+      </button>
+    </div>
+  </header>
+
+  <div id="search-bar-container" class="search-bar-container">
+    <input id="search-input" type="text" placeholder="Buscar no look..." />
+  </div>
+  <div id="user-menu" class="user-menu">
+    <a id="menu-login-link" href="../perfil/perfil.html">Entrar</a>
+    <a id="menu-orders-link" href="../perfil/perfil.html">Meus pedidos</a>
+    <a id="menu-favorites-link" href="favoritos.html">Favoritos</a>
+  </div>
+
+  <!-- Atelier overlay -->
+  <div id="atelier-overlay" class="atelier-overlay" role="dialog" aria-modal="true">
+    <div class="atelier-content">
+      <button class="atelier-close" id="atelier-close-btn">&times;</button>
+      <div class="atelier-inner">
+        <div class="atelier-text">
+          <span class="atelier-label">ATELIER WALKWORD</span>
+          <h2>Onde cada peça nasce com propósito.</h2>
+          <p>Nosso ateliê em Porto produz moda consciente com materiais rastreáveis, artesãos certificados e zero desperdício.</p>
+          <ul>
+            <li><i class="fa-solid fa-leaf"></i> 100% lã orgânica certificada</li>
+            <li><i class="fa-solid fa-recycle"></i> Zero desperdício no processo</li>
+            <li><i class="fa-solid fa-hand-holding-heart"></i> Artesãos locais remunerados justamente</li>
+            <li><i class="fa-solid fa-tag"></i> Cada peça tem ID rastreável</li>
+          </ul>
+          <a href="../telacatalogo/catalogo.html" class="atelier-cta">Explorar coleção</a>
+        </div>
+        <div class="atelier-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80')"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu drawer -->
+  <div id="menu-drawer" class="menu-drawer" role="dialog" aria-modal="true">
+    <div class="menu-drawer-inner">
+      <button class="menu-drawer-close" id="menu-drawer-close">&times;</button>
+      <h3>CATEGORIAS</h3>
+      <nav class="drawer-nav">
+        <a href="../telacatalogo/catalogo.html?cat=footwear"><i class="fa-solid fa-shoe-prints"></i> Footwear</a>
+        <a href="../telacatalogo/catalogo.html?cat=shirts"><i class="fa-solid fa-shirt"></i> Camisas</a>
+        <a href="../telacatalogo/catalogo.html?cat=blazers"><i class="fa-solid fa-vest"></i> Blazers</a>
+        <a href="../telacatalogo/catalogo.html?cat=outerwear"><i class="fa-solid fa-person-shelter"></i> Outerwear</a>
+        <a href="../telacatalogo/catalogo.html?cat=accessories"><i class="fa-solid fa-glasses"></i> Acessórios</a>
+      </nav>
+      <hr>
+      <h3>LINKS RÁPIDOS</h3>
+      <nav class="drawer-nav">
+        <a href="../navegacao/navegacao.html"><i class="fa-solid fa-newspaper"></i> Editorial</a>
+        <a href="../perfil/perfil.html"><i class="fa-solid fa-user"></i> Minha Conta</a>
+        <a href="../privacidade/privacidade.html"><i class="fa-solid fa-shield-halved"></i> Privacidade</a>
+      </nav>
+    </div>
+  </div>
+  <div id="drawer-backdrop" class="drawer-backdrop"></div>
+
+  <!-- CART DRAWER -->
+  <div id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true">
+    <div class="cart-drawer-inner">
+      <div class="cart-drawer-header">
+        <h3>Meu Carrinho</h3>
+        <button class="cart-drawer-close" id="cart-drawer-close">&#x2715;</button>
+      </div>
+      <div id="cart-drawer-items" class="cart-drawer-items"></div>
+      <div class="cart-drawer-footer" id="cart-drawer-footer" style="display:none;">
+        <div class="cart-drawer-subtotal">
+          <span>Subtotal</span><strong id="cart-drawer-total">R$ 0,00</strong>
+        </div>
+        <a href="../Pagamentos/pagamento.html" class="cart-drawer-checkout-btn">Finalizar Compra <i class="fa-solid fa-arrow-right"></i></a>
+        <p class="cart-drawer-note"><i class="fa-solid fa-leaf"></i> Embalagem eco-friendly</p>
+      </div>
+      <div class="cart-drawer-empty" id="cart-drawer-empty">
+        <i class="fa-regular fa-bag-shopping"></i><p>Carrinho vazio</p>
+        <a href="../telacatalogo/catalogo.html">Explorar coleção</a>
+      </div>
+    </div>
+  </div>
+  <div id="cart-backdrop" class="drawer-backdrop"></div>
+
+  <!-- PAGE CONTENT -->
+  <main class="fav-main">
+    <div class="fav-header">
+      <div class="fav-header-text">
+        <span class="fav-label">MINHA COLEÇÃO</span>
+        <h1>Favoritos</h1>
+        <p class="fav-subtitle">As peças que você guardou com cuidado.</p>
+      </div>
+      <div class="fav-count-area">
+        <span class="fav-count-badge" id="fav-count-badge">0 peças</span>
+      </div>
+    </div>
+
+    <!-- Grid de favoritos -->
+    <div id="fav-grid" class="fav-grid">
+      <!-- Preenchido dinamicamente pelo JS -->
+    </div>
+
+    <!-- Estado vazio -->
+    <div id="fav-empty" class="fav-empty" style="display:none;">
+      <div class="fav-empty-icon">
+        <i class="fa-regular fa-heart"></i>
+      </div>
+      <h2>Sua lista está vazia</h2>
+      <p>Adicione peças que você ama enquanto navega pelo catálogo.<br>Elas ficarão salvas aqui para você encontrar quando precisar.</p>
+      <a href="../telacatalogo/catalogo.html" class="fav-empty-btn">
+        Explorar Coleção <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Inspiração quando tem favoritos -->
+    <section id="fav-inspire" class="fav-inspire" style="display:none;">
+      <div class="fav-inspire-inner">
+        <i class="fa-solid fa-leaf"></i>
+        <div>
+          <strong>Moda consciente em cada escolha.</strong>
+          <span>Cada peça salva representa um passo em direção a um guarda-roupa mais intencional.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <h2>WALKWORD</h2>
+      <p>© 2026 WALKWORD.<br>CONSCIOUS CRAFTSMANSHIP.</p>
+    </div>
+    <div class="footer-col">
+      <span>SERVICE</span>
+      <a href="#">TRACEABILITY</a>
+      <a href="#">SHIPPING & RETURNS</a>
+      <a href="../privacidade/privacidade.html">PRIVACY POLICY</a>
+    </div>
+    <div class="footer-col">
+      <span>EXPLORE</span>
+      <a href="../telacatalogo/catalogo.html">SHOP</a>
+      <a href="#">OUR STORY</a>
+      <a href="#">STOCKISTS</a>
+    </div>
+    <div class="footer-col">
+      <span>FOLLOW</span>
+      <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fa-brands fa-pinterest"></i> Pinterest</a>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/cart-drawer.js"></script>
+  <script src="favoritos.js"></script>
+  <script src="../js/site-header.js" defer></script>
+  <script>
+    // Overlay/drawer logic
+    (function () {
+      var atelierOverlay = document.getElementById('atelier-overlay');
+      var atelierCloseBtn = document.getElementById('atelier-close-btn');
+      var menuDrawer = document.getElementById('menu-drawer');
+      var menuDrawerClose = document.getElementById('menu-drawer-close');
+      var drawerBackdrop = document.getElementById('drawer-backdrop');
+
+      document.querySelectorAll('.nav-atelier').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); atelierOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; });
+      });
+      if (atelierCloseBtn) atelierCloseBtn.addEventListener('click', function () { atelierOverlay.classList.remove('open'); document.body.style.overflow = ''; });
+      if (atelierOverlay) atelierOverlay.addEventListener('click', function (e) { if (e.target === atelierOverlay) { atelierOverlay.classList.remove('open'); document.body.style.overflow = ''; } });
+
+      document.querySelectorAll('.nav-menu-link').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); menuDrawer.classList.add('open'); drawerBackdrop.classList.add('open'); document.body.style.overflow = 'hidden'; });
+      });
+      function closeDrawer() { menuDrawer.classList.remove('open'); drawerBackdrop.classList.remove('open'); document.body.style.overflow = ''; }
+      if (menuDrawerClose) menuDrawerClose.addEventListener('click', closeDrawer);
+      if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+    })();
+  </script>
+</body>
+</html>

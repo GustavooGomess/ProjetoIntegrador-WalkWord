@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/site-header.css">
+    <link rel="stylesheet" href="perfil.css">
+    <title>WALKWORD — Meu Perfil</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-brand">
+          <a href="../telacatalogo/catalogo.html"><h1>WALKWORD</h1></a>
+        </div>
+        <nav class="nav_links" aria-label="Navegação principal">
+            <a href="../navegacao/navegacao.html">Editorial</a>
+            <a href="#" class="nav-atelier">Atelier</a>
+            <a href="#" class="nav-menu-link">Menu</a>
+            <a href="../telacatalogo/catalogo.html">Shop</a>
+        </nav>
+        <div class="icons_search">
+            <button id="search-toggle-btn" class="icon-btn" type="button" aria-label="Abrir busca">
+              <img src="../telacatalogo/img/lupa (1).png" alt="Buscar">
+            </button>
+            <button id="cart-btn" class="icon-btn" type="button" aria-label="Abrir carrinho">
+              <img src="../telacatalogo/img/sacola-de-compras.png" alt="Carrinho">
+              <span id="cart-count" class="cart-count">0</span>
+            </button>
+            <button id="user-btn" class="icon-btn" type="button" aria-label="Abrir menu de usuário">
+              <img src="../telacatalogo/img/user (2).png" alt="Usuário">
+            </button>
+        </div>
+    </header>
+    <div id="search-bar-container" class="search-bar-container">
+      <input id="search-input" type="text" placeholder="Buscar no look..." />
+    </div>
+    <div id="user-menu" class="user-menu">
+      <a id="menu-login-link" href="../login/login.html">Entrar</a>
+      <a id="menu-orders-link" href="#">Meus pedidos</a>
+      <a id="menu-favorites-link" href="../favoritos/favoritos.html">Favoritos</a>
+    </div>
+    <section class="mega">
+        <div class="lateral">
+            <div class="text">
+                <h1>Account</h1>
+                <p>Manage your profile & orders</p>
+            </div>
+            <div class="links">
+                <div class="sel active">
+                    <a href=""><i class="fa-solid fa-box"></i> Orders</a>
+                </div>
+                <div class="sel">
+                    <a href=""><i class="fa-solid fa-user"></i> Personal Data</a>
+                </div>
+                <div class="sel">
+                    <a href=""><i class="fa-solid fa-location-dot"></i> Address</a>
+                </div>
+                <div class="sel">
+                    <a href=""><i class="fa-solid fa-credit-card"></i> Payment</a>
+                </div>
+                <div class="sel">
+                    <a href="#" id="privacy-btn"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+                </div>
+                <div class="sign">
+                    <a href=""> <i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+                </div>
+            </div>
+        </div>
+        <div class="parte">
+            <div class="back">
+                <div class="text2">
+                    <h1>Welcome back, Julian!</h1>
+                    <p>Your wardobre choices have saved 12 items from landfills this <br> year.Thank you for Walking
+                        conciously.</p>
+                </div>
+                <div class="folha">
+                    <i class="fa-solid fa-leaf icon1"></i>
+                    <div class="text3">
+                        <p>SUSTAINABILITY IMPACT</p>
+                        <h1>12 items saved from lanfill</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="link2">
+                <div class="active">
+                    <h1>Active Order</h1>
+                    <a href="">VIEW ALL HISTORY</a>
+                </div>
+                <div id="dynamic-orders-container">
+                    <!-- Dynamic orders will be rendered here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+    <div class="footer-brand">
+        <h2>WALKWORD</h2>
+        <p>© 2024 WALKWORD. CONSCIOUS <br> CRAFTSMANSHIP.</p>
+    </div>
+
+    <div class="footer-col">
+        <span>SERVICE</span>
+        <a href="">TRACEABILITY</a>
+        <a href="">SHIPPING & RETURNS</a>
+        <a href="">PRIVACY POLICY</a>
+    </div>
+
+    <div class="footer-col">
+        <span>EXPLORE</span>
+        <a href="">CONTACT</a>
+        <a href="">OUR STORY</a>
+        <a href="">STOCKISTS</a>
+    </div>
+
+    <div class="footer-col">
+        <span>NEWSLETTER</span>
+        <div class="newsletter">
+            <input type="email" placeholder="YOUR EMAIL">
+            <button>→</button>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/app.js"></script>
+<script src="../js/cart-drawer.js"></script>
+<script src="perfil.js"></script>
+<script src="../js/site-header.js" defer></script>
+
+</body>
+
+</html>

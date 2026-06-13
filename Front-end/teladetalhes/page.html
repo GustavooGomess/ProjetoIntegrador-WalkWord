@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WALKWORD — Produto</title>
+  <meta name="description" content="Detalhes do produto WALKWORD — moda consciente.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/site-header.css">
+  <link rel="stylesheet" href="./page.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-brand">
+      <a href="../navegacao/navegacao.html"><h1>WALKWORD</h1></a>
+    </div>
+    <nav class="nav_links" aria-label="Navegação principal">
+      <a href="../navegacao/navegacao.html" class="nav-editorial">Editorial</a>
+      <a href="#" class="nav-atelier">Atelier</a>
+      <a href="#" class="nav-menu-link">Menu</a>
+      <a href="../telacatalogo/catalogo.html" class="nav-shop">Shop</a>
+    </nav>
+    <div class="icons_search">
+      <button id="search-toggle-btn" class="icon-btn" type="button" aria-label="Abrir busca">
+        <img src="../telacatalogo/img/lupa (1).png" alt="Buscar">
+      </button>
+      <button id="cart-btn" class="icon-btn" type="button" aria-label="Abrir carrinho">
+        <img src="../telacatalogo/img/sacola-de-compras.png" alt="Carrinho">
+        <span id="cart-count" class="cart-count">0</span>
+      </button>
+      <button id="user-btn" class="icon-btn" type="button" aria-label="Abrir menu de usuário">
+        <img src="../telacatalogo/img/user (2).png" alt="Usuário">
+      </button>
+    </div>
+  </header>
+
+  <div id="search-bar-container" class="search-bar-container">
+    <input id="search-input" type="text" placeholder="Buscar no look..." />
+  </div>
+  <div id="user-menu" class="user-menu">
+    <a id="menu-login-link" href="../perfil/perfil.html">Entrar</a>
+    <a id="menu-orders-link" href="#">Meus pedidos</a>
+    <a id="menu-favorites-link" href="../favoritos/favoritos.html">Favoritos</a>
+  </div>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true">
+    <div class="cart-drawer-inner">
+      <div class="cart-drawer-header">
+        <h3>Meu Carrinho</h3>
+        <button class="cart-drawer-close" id="cart-drawer-close">&#x2715;</button>
+      </div>
+      <div id="cart-drawer-items" class="cart-drawer-items"></div>
+      <div class="cart-drawer-footer" id="cart-drawer-footer" style="display:none;">
+        <div class="cart-drawer-subtotal">
+          <span>Subtotal</span>
+          <strong id="cart-drawer-total">R$ 0,00</strong>
+        </div>
+        <a href="../Pagamentos/pagamento.html" class="cart-drawer-checkout-btn">Finalizar Compra <i class="fa-solid fa-arrow-right"></i></a>
+        <p class="cart-drawer-note"><i class="fa-solid fa-leaf"></i> Embalagem eco-friendly incluída</p>
+      </div>
+      <div class="cart-drawer-empty" id="cart-drawer-empty">
+        <i class="fa-regular fa-bag-shopping"></i>
+        <p>Seu carrinho está vazio</p>
+        <a href="../telacatalogo/catalogo.html">Explorar coleção</a>
+      </div>
+    </div>
+  </div>
+  <div id="cart-backdrop" class="drawer-backdrop"></div>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <nav class="breadcrumb" aria-label="Navegação estrutural">
+    <a href="../telacatalogo/catalogo.html">Shop</a>
+    <span>/</span>
+    <a href="../telacatalogo/catalogo.html" id="breadcrumb-category">Categoria</a>
+    <span>/</span>
+    <span class="current" id="breadcrumb-product">Produto</span>
+  </nav>
+
+  <!-- ===== PRODUCT ===== -->
+  <section class="menu_center">
+
+    <!-- Imagem -->
+    <div class="image_div">
+      <img id="main-product-image" src="./img/camiseta_bege.jpg" alt="Imagem principal do produto">
+      <span class="image-zoom-hint">
+        <i class="fa-solid fa-magnifying-glass-plus" style="font-size:10px;margin-right:5px;"></i>
+        Aproximar
+      </span>
+    </div>
+
+    <!-- Info -->
+    <div class="info_div">
+
+      <!-- Badges -->
+      <div class="nav_info">
+        <div class="nav_sustentavel">Sustentável</div>
+        <div class="nav_semi">Novo — Peça Original</div>
+      </div>
+
+      <!-- Título -->
+      <h1>T-shirt Knot White</h1>
+
+      <!-- Preço -->
+      <div class="price-row">
+        <span class="price-main">R$ 160,00</span>
+        <span class="price-installment">ou 3× R$ 53,33 sem juros</span>
+      </div>
+
+      <hr class="info-divider">
+
+      <!-- Impacto -->
+      <div class="div_impacto">
+        <img src="./img/leaf.png" alt="">
+        <div class="impacto_text">
+          <h4>Impacto Walkword</h4>
+          <p>Salvo de aterros, 100% lã orgânica. Esta peça economizou aproximadamente 2.400 litros de água.</p>
+        </div>
+      </div>
+
+      <!-- Tamanho -->
+      <div class="tamanho_container">
+        <div class="tamanho_row">
+          <h3>Tamanho</h3>
+          <h4>Guia de medidas</h4>
+        </div>
+        <div class="tamanho_options" id="size-options-container">
+          <!-- Injetado pelo JS -->
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="buttons_info">
+        <input type="button" id="add-to-cart-btn" value="Adicionar ao Carrinho">
+        <div class="love">
+          <i class="fa-regular fa-heart" style="font-size:1rem;color:#7a7570;"></i>
+          <p>Salvar na Playlist</p>
+        </div>
+      </div>
+
+      <hr class="info-divider">
+
+      <!-- Descrição -->
+      <div>
+        <p class="product-description-label">Descrição</p>
+        <p>Um ícone de alfaiataria atemporal redefinido. Este blazer estruturado apresenta lapelas largas, bolsos embutidos e um corte levemente oversized que transita do editorial ao dia a dia. Fabricado artesanalmente com lã orgânica certificada.</p>
+      </div>
+
+      <!-- Accordion -->
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h4>Materiais &amp; Cuidados</h4>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>100% lã orgânica certificada. Lavar à mão em água morna. Não usar cloro. Secar deitado na sombra.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h4>Envio &amp; Devoluções</h4>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Frete grátis para compras acima de R$ 500. Devoluções em até 30 dias. Garantia de 1 ano em defeitos de fabricação.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h4>Avaliações (12)</h4>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p>Confira as avaliações dos clientes sobre este produto.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== COMPLETE O LOOK ===== -->
+  <section class="other_products">
+    <div class="other_products-header">
+      <span class="other_products-eyebrow">Curadoria</span>
+      <h2>Complete o Look</h2>
+    </div>
+    <div class="row_divs">
+
+      <div class="card_hero"
+           data-title="Oversized Linen Blazer"
+           data-price="1200"
+           data-category="blazers"
+           data-sizes="PP,P,M,G,GG"
+           data-image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80">
+        <div class="card_hero-img">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Oversized Linen Blazer">
+          <div class="card_hero-quick">Ver produto</div>
+        </div>
+        <div class="card_hero-info">
+          <span class="card_hero-brand">Walkword</span>
+          <h3>Oversized Linen Blazer</h3>
+          <p>R$ 1.200,00</p>
+        </div>
+      </div>
+
+      <div class="card_hero"
+           data-title="Tailored Suit Pants"
+           data-price="680"
+           data-category="outerwear"
+           data-sizes="PP,P,M,G,GG"
+           data-image="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=400&q=80">
+        <div class="card_hero-img">
+          <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=400&q=80" alt="Tailored Suit Pants">
+          <div class="card_hero-quick">Ver produto</div>
+        </div>
+        <div class="card_hero-info">
+          <span class="card_hero-brand">Walkword</span>
+          <h3>Tailored Suit Pants</h3>
+          <p>R$ 680,00</p>
+        </div>
+      </div>
+
+      <div class="card_hero"
+           data-title="Structured Cocoon Coat"
+           data-price="1900"
+           data-category="outerwear"
+           data-sizes="P,M,G,GG"
+           data-image="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=400&q=80">
+        <div class="card_hero-img">
+          <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=400&q=80" alt="Structured Cocoon Coat">
+          <div class="card_hero-quick">Ver produto</div>
+        </div>
+        <div class="card_hero-info">
+          <span class="card_hero-brand">Walkword</span>
+          <h3>Structured Cocoon Coat</h3>
+          <p>R$ 1.900,00</p>
+        </div>
+      </div>
+
+      <div class="card_hero"
+           data-title="Chelsea Leather Boot"
+           data-price="1200"
+           data-category="footwear"
+           data-sizes="38,39,40,41,42"
+           data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80">
+        <div class="card_hero-img">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Chelsea Leather Boot">
+          <div class="card_hero-quick">Ver produto</div>
+        </div>
+        <div class="card_hero-info">
+          <span class="card_hero-brand">Walkword</span>
+          <h3>Chelsea Leather Boot</h3>
+          <p>R$ 1.200,00</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <h2>Walkword</h2>
+      <p>© 2026 Walkword.<br>Moda consciente, feita para durar.</p>
+    </div>
+    <div class="footer-col">
+      <span>Serviço</span>
+      <a href="#"><i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i> Rastreabilidade</a>
+      <a href="#"><i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i> Envios &amp; Trocas</a>
+      <a href="../privacidade/privacidade.html"><i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i> Privacidade</a>
+    </div>
+    <div class="footer-col">
+      <span>Explorar</span>
+      <a href="#"><i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i> Contato</a>
+      <a href="../navegacao/navegacao.html"><i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i> Nossa História</a>
+      <a href="../telacatalogo/catalogo.html"><i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i> Shop</a>
+    </div>
+    <div class="footer-col">
+      <span>Newsletter</span>
+      <p style="font-size:0.75rem;line-height:1.7;margin-bottom:10px;">Receba curadoria e lançamentos em primeira mão.</p>
+      <div style="display:flex;align-items:center;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:10px;gap:8px;">
+        <input type="email" placeholder="seu@email.com" style="background:transparent;border:none;outline:none;font-family:var(--font);font-size:12px;color:rgba(255,255,255,0.7);width:100%;">
+        <button aria-label="Inscrever" style="background:transparent;border:none;cursor:pointer;color:rgba(255,255,255,0.5);font-size:15px;transition:color 0.2s,transform 0.2s;" onmouseover="this.style.color='#fff';this.style.transform='translateX(3px)'" onmouseout="this.style.color='rgba(255,255,255,0.5)';this.style.transform='none'">→</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+  <script src="../js/cart-drawer.js"></script>
+  <script src="./page.js" defer></script>
+  <script src="../js/site-header.js" defer></script>
+
+</body>
+</html>
